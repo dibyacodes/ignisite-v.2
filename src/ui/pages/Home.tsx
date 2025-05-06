@@ -9,6 +9,8 @@ function Home() {
         }
     ]
 
+    // install node and other packages to make this app work
+
     return (
         <>
             <div className="w-[100%] pb-10 px-2 flex flex-col gap-5">
