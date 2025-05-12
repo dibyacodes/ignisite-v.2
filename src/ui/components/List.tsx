@@ -1,5 +1,5 @@
 interface ListItems {
-	items : [string],
+	items : string[],
 	subject : string
 }
 

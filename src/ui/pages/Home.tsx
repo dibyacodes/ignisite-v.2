@@ -1,21 +1,21 @@
-import Card from "../components/Card"
+// import Card from "../components/Card"
 import List from "../components/List"
 
 
 
 function Home() {
 
-    const servicesArray = [
-        {
-            title: "Custom Website Development",
-            description: ['Making', 'Element', 'Advanced'],
-        },
+    // const servicesArray = [
+    //     {
+    //         title: "Custom Website Development",
+    //         description: ['Making', 'Element', 'Advanced'],
+    //     },
 
-        {
-            title: "Website Redesign & Maintenance",
-            description: "check your website buddy"
-        }
-    ]
+    //     {
+    //         title: "Website Redesign & Maintenance",
+    //         description: "check your website buddy"
+    //     }
+    // ]
 
 	const list = [
 		'Custom Website Designs',

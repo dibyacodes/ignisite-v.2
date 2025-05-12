@@ -1,11 +1,7 @@
-interface descriptionTemp {
-
-	element : [string];
-}
 
 interface cardDetails {
     title: string,
-    description: descriptionTemp,
+    description: string,
     buttonText?: string
 }
 
