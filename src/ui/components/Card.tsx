@@ -1,6 +1,11 @@
+interface descriptionTemp {
+
+	element : [string];
+}
+
 interface cardDetails {
     title: string,
-    description: string,
+    description: descriptionTemp,
     buttonText?: string
 }
 
@@ -14,8 +19,14 @@ function Card({ title, description, buttonText }: cardDetails) {
                         {title}
                     </h1>
 
-                    <p className="font-inter font-medium text-md">
-                        {description}
+                    <p className="font-inter flex gap-10 font-medium text-md">
+                        {
+							description.map((items)=>(
+								<div>
+								{description}
+								</div>
+							))
+						}
                     </p>
                 </div>
 
