@@ -17,11 +17,7 @@ function Card({ title, description, buttonText }: cardDetails) {
 
                     <p className="font-inter flex gap-10 font-medium text-md">
                         {
-							description.map((items)=>(
-								<div>
-								{description}
-								</div>
-							))
+							description
 						}
                     </p>
                 </div>
