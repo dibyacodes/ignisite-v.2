@@ -61,15 +61,6 @@ function Home() {
 				</div>
 
 			</div>
-			<div className="bg-gray-950 h-screen flex flex-col items-center pt-10">
-				<div>
-					{/* {
-						servicesArray.map((items, index) => (
-							<Card key={index} title={items.title} description={items.description} />
-						))
-					} */}
-				</div>
-			</div>
         </>
     )
 }
