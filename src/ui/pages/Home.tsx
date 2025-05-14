@@ -18,7 +18,7 @@ function Home() {
 	//     }
 	// ]
 
-	const services =[
+	const services = [
 		'Ecommerce',
 		'Portfolio',
 		'Education',
@@ -74,8 +74,60 @@ function Home() {
 				</div>
 			</div> */}
 
-			<div className="bg-black flex flex-col justify-center items-center">
-				<Card title="There's a website for every idea" description={services}/>
+			<div className="bg-black flex flex-col justify-center items-center gap-5">
+				<div>
+					<h1 className="text-white font-inter text-3xl font-semibold">We got you covered.</h1>
+				</div>
+				<Card title="There's a website for every idea" description={services} />
+			</div>
+
+			<div className="bg-black px-4 py-20 flex flex-col gap-10">
+				<div className="flex flex-col gap-2">
+					<h1 className="text-4xl font-inter text-gray-100 font-semibold capitalize">
+						Your business, your choice.
+					</h1>
+					<p className="text-white uppercase font-inter text-sm">
+						Which one would you choose?
+					</p>
+				</div>
+				<div className="p-4 border-2 border-red-600/80 rounded-2xl bg-radial-[at_50%_50%] from-black to-red-600/50 flex flex-col gap-5">
+					<div>
+						<h1 className="text-white font-inter text-2xl font-semibold pb-2">The Red Team</h1>
+						<hr className="border-1 border-red-400/20" />
+						<h2 className="pt-4 text-red-100 leading-tight font-inter">
+							<ul className="flex flex-col gap-4">
+								<li>Use the power of the Internet & <b>make your business accessible 24/7</b>.</li>
+								<li>Get more customers.</li>
+								<li><b>Move ahead</b> of your competitors.</li>
+								<li>Get <b>organic marketing</b> & traffic to your business</li>
+								<li>Highlight your <b>brand & identity</b> as a professional</li>
+							</ul>
+						</h2>
+					</div>
+				</div>
+
+				<div className="flex flex-col items-center justify-center">
+					<h1 className="text-transparent px-4 bg-clip-text bg-linear-to-r from-red-500 to-blue-500 text-4xl font-inter font-bold italic">
+						- VS -
+					</h1>
+				</div>
+
+				<div className="p-4 border-2 border-blue-600/80 rounded-2xl bg-radial-[at_50%_50%] from-black to-blue-600/50 flex flex-col gap-5">
+					<div>
+						<h1 className="text-white font-inter text-2xl font-semibold pb-2">The Blue Team</h1>
+						<hr className="border-1 border-red-400/20" />
+						<h2 className="pt-4 text-blue-100 leading-tight font-inter">
+							<ul className="flex flex-col gap-4">
+								<li><b>Ignore the power of the internet</b> & keep yourself hidden</li>
+								<li>Get limited customers</li>
+								<li>Let your <b>competitors win</b>.</li>
+								<li><b>Spend 10x in the name of marketing</b> & get no results</li>
+								<li><b>Have no professional identity</b> of your business</li>
+							</ul>
+						</h2>
+					</div>
+					
+				</div>
 			</div>
 		</>
 	)
