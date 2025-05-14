@@ -1,6 +1,7 @@
 // import Card from "../components/Card"
 import Card from "../components/Card"
 import List from "../components/List"
+import OfferCard from "../components/OfferCard"
 
 // testing
 
@@ -17,6 +18,13 @@ function Home() {
 	//         description: "check your website buddy"
 	//     }
 	// ]
+
+	const whatDoWeOffer = [
+		{
+			name : "Custom Made Designs",
+			description : "changes to be made"
+		},
+	]
 
 	const services = [
 		'Ecommerce',
@@ -126,7 +134,18 @@ function Home() {
 							</ul>
 						</h2>
 					</div>
-					
+
+				</div>
+			</div>
+
+			<div className="bg-black px-4">
+				<div className="flex flex-col gap-3">
+					<h1 className="text-white text-4xl font-semibold font-inter capitalize">What do we have to offer?</h1>
+					<p className="text-gray-500 font-inter font-medium leading-tight">We have a bunch of benefits to bring to the table. These are just a fraction of them!</p>
+				</div>
+
+				<div>
+					<OfferCard serviceToOffer={whatDoWeOffer}/>
 				</div>
 			</div>
 		</>
