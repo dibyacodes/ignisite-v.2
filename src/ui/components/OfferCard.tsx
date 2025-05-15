@@ -16,7 +16,7 @@ function OfferCard({ serviceToOffer }: cardContent) {
                 <div>
                     <img src={serviceToOffer.icon} alt="" />
                 </div>
-                <div className="font-inter bg-purple-300 text-purple-800 px-4 w-fit rounded-full">
+                <div className="font-inter font-semibold py-[0.14rem] bg-purple-300 text-purple-800 px-4 w-fit rounded-full">
                     {serviceToOffer.categoryTag}
                 </div>
                 <div className="flex flex-row items-center gap-5 justify-between">
