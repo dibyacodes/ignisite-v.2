@@ -87,7 +87,7 @@ function Home() {
 					<p className="text-gray-500 font-inter font-medium leading-tight">We have a bunch of benefits to bring to the table. These are just a fraction of them!</p>
 				</div>
 
-				<div className="flex flex-row overflow-y-hidden gap-2 overflow-x-scroll">
+				<div className="flex flex-row overflow-y-hidden gap-2 overflow-x-scroll hide-scrollbar">
 					{
 						whatDoWeOffer.map((items)=>(
 							<OfferCard serviceToOffer={items}/>
