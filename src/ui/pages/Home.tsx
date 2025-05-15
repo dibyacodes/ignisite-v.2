@@ -3,26 +3,36 @@ import Card from "../components/Card"
 import List from "../components/List"
 import OfferCard from "../components/OfferCard"
 
+
 // testing
 
 function Home() {
 
-	// const servicesArray = [
-	//     {
-	//         title: "Custom Website Development",
-	//         description: ['Making', 'Element', 'Advanced'],
-	//     },
-
-	//     {
-	//         title: "Website Redesign & Maintenance",
-	//         description: "check your website buddy"
-	//     }
-	// ]
-
 	const whatDoWeOffer = [
 		{
 			name : "Custom Made Designs",
-			description : "changes to be made"
+			icon : '/customMadeDesigns.svg',
+			description : "We're here to deliver web & software solutions, custom made for your business that stands out.",
+			features : [
+				'Responsive Designs',
+				'Designs for all screen sizes',
+				'Custom designed assets',
+				'Custom Color Palletes'
+			],
+			categoryTag : 'new',
+		},
+
+		{
+			name : "Custom Made Designs",
+			icon : '/customMadeDesigns.svg',
+			description : "We're here to deliver web & software solutions, custom made for your business that stands out.",
+			features : [
+				'Responsive Designs',
+				'Designs for all screen sizes',
+				'Custom designed assets',
+				'Custom Color Palletes'
+			],
+			categoryTag : 'new',
 		},
 	]
 
@@ -48,7 +58,7 @@ function Home() {
 		// bg-[radial-gradient(to_bottom,#E100FF_0%,black_30%)]
 		<>
 			{/* bg-radial-[at_x_y] */}
-			<div className="w-[100%] z-10 h-svh pb-10 px-2 flex flex-col bg-radial-[at_50%_0%] from-[#E100FF] to-black to-70% justify-center gap-5 ">
+			<div className="w-[100%] z-10 h-svh px-2 flex flex-col bg-radial-[at_50%_0%] from-[#E100FF] to-black to-70% justify-center gap-5 ">
 
 				<div className="flex flex-col gap-2">
 					<h1 className="text-5xl font-semibold font-inter max-w-[20ch] text-left mt-10 text-transparent bg-clip-text bg-gradient-to-r from-gray-100 via-purple-200 to-gray-100">
@@ -71,20 +81,26 @@ function Home() {
 				</div>
 			</div>
 
-			{/* <div className="bg-black px-4">
-				<div className="flex flex-col gap-4">
-					<h1 className="text-purple-200 font-inter text-4xl capitalize font-medium">
-						an internet home for your business
-					</h1>
-					<p className="text-gray-400 font-inter font-medium text-md leading-tight">
-						Let your customers access you & your brand online, while you focus on your vision.
-					</p>
+			<div className="bg-black px-4 flex flex-col gap-10">
+				<div className="flex flex-col gap-3">
+					<h1 className="text-white text-4xl font-semibold font-inter capitalize">What do we have to offer?</h1>
+					<p className="text-gray-500 font-inter font-medium leading-tight">We have a bunch of benefits to bring to the table. These are just a fraction of them!</p>
 				</div>
-			</div> */}
 
-			<div className="bg-black flex flex-col justify-center items-center gap-5">
-				<div>
-					<h1 className="text-white font-inter text-3xl font-semibold">We got you covered.</h1>
+				<div className="flex flex-row overflow-y-hidden gap-2 overflow-x-scroll">
+					{
+						whatDoWeOffer.map((items)=>(
+							<OfferCard serviceToOffer={items}/>
+						))
+					}
+
+				</div>
+			</div>
+			
+
+			<div className="bg-black flex pt-30 flex-col justify-center items-center gap-5">
+				<div className="px-5">
+					<h1 className="text-white font-inter text-3xl font-semibold">Have an Idea? <b>We got you covered.</b></h1>
 				</div>
 				<Card title="There's a website for every idea" description={services} />
 			</div>
@@ -138,16 +154,6 @@ function Home() {
 				</div>
 			</div>
 
-			<div className="bg-black px-4">
-				<div className="flex flex-col gap-3">
-					<h1 className="text-white text-4xl font-semibold font-inter capitalize">What do we have to offer?</h1>
-					<p className="text-gray-500 font-inter font-medium leading-tight">We have a bunch of benefits to bring to the table. These are just a fraction of them!</p>
-				</div>
-
-				<div>
-					<OfferCard serviceToOffer={whatDoWeOffer}/>
-				</div>
-			</div>
 		</>
 	)
 }

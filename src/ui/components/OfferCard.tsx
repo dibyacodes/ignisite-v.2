@@ -1,29 +1,52 @@
 interface cardContent {
     serviceToOffer: {
         "name": string,
-        "description": string
-    }[]
+        "description": string,
+        "categoryTag": string,
+        "icon": string,
+        "features": string[], // a string array
+    }, // an object array
+
 }
 
-function OfferCard({serviceToOffer}:cardContent) {
+function OfferCard({ serviceToOffer }: cardContent) {
     return (
         <>
-            <div className="bg-purple-100 px-3 py-6 rounded-2xl max-w-[50ch]">
-                <h1 className="text-3xl text-gray-900 font-inter font-semibold">
-                    {
-                        serviceToOffer.map((items)=>(
-                            items.name
-                        ))
-                    }
-                </h1>
+            <div className="bg-purple-100 px-5 py-6 rounded-2xl min-w-xs md:min-w-[50ch] md:max-w-[50ch] flex flex-col gap-5">
+                <div>
+                    <img src={serviceToOffer.icon} alt="" />
+                </div>
+                <div className="font-inter bg-purple-300 text-purple-800 px-4 w-fit rounded-full">
+                    {serviceToOffer.categoryTag}
+                </div>
+                <div className="flex flex-row items-center gap-5 justify-between">
+                    <h1 className="text-2xl leading-7 text-gray-900 md:max-w-[60%] font-inter font-semibold">
+                        {serviceToOffer.name}
+                    </h1>
 
-                <p className="text-md font-inter text-gray-900">
-                    {
-                        serviceToOffer.map((items)=>(
-                            items.description
-                        ))
-                    }
+                    <button className="bg-black text-white py-1 px-6 h-fit rounded-full font-inter uppercase font-semibold">
+                        get
+                    </button>
+
+                </div>
+                <p className="text-md font-inter leading-tight text-gray-500">
+                    {serviceToOffer.description}
                 </p>
+
+                <hr className="border-1 border-gray-300 rounded-full" />
+
+                <div>
+                    <ul className="flex flex-col gap-2">
+                        {
+                            serviceToOffer.features.map((arrayItems) => (
+                                <div className="flex">
+                                    <img src="/offerCardPoints.svg" alt="" />
+                                    <li>{arrayItems}</li>
+                                </div>
+                            ))
+                        }
+                    </ul>
+                </div>
             </div>
         </>
     )
