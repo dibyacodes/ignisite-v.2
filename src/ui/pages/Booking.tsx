@@ -5,7 +5,7 @@ function Booking() {
     const [date, setDate] = useState(today)
 
     const [name,setName] = useState("")
-    const [agenda,setAgenda] = useState("")
+    // const [agenda,setAgenda] = useState("")
 
     return (
         <>
