@@ -54,10 +54,12 @@ function Home() {
 	const services = [
 		'Ecommerce',
 		'Portfolio',
+		'Gyms',
 		'Education',
 		'Restaurant',
+		'Hotels',
 		'Personal',
-		'Product'
+		'Product',
 	]
 
 	const list = [
@@ -98,8 +100,8 @@ function Home() {
 
 			
 
-			<div className="bg-black flex pb-30 flex-col justify-center items-center gap-5">
-				<div className="px-5">
+			<div className="bg-black flex pb-30 flex-col justify-center items-center gap-5 px-4">
+				<div className="px-2">
 					<h1 className="text-white font-inter text-3xl font-semibold">Have an Idea? <b>We got you covered.</b></h1>
 				</div>
 				<Card title="There's a website for every idea" description={services} />
@@ -123,7 +125,7 @@ function Home() {
 			<div className="bg-black px-4 py-20 flex flex-col gap-10">
 				<div className="flex flex-col gap-2">
 					<h1 className="text-4xl font-inter text-gray-100 font-semibold capitalize">
-						Your business, your choice.
+						getting clients is actually simple
 					</h1>
 					<p className="text-white uppercase font-inter text-sm">
 						Which one would you choose?
