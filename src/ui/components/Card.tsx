@@ -42,7 +42,7 @@ function Card({ title, description }: cardDetails) {
             <div className="border-2 bg-radial-[at_50%_100%] from-black to-purple-500/50 to-95% border-purple-500/50 flex flex-col items-center p-4 gap-5 py-10 justify-between rounded-2xl">
                 <div className="flex gap-5 flex-row justify-between items-center">
                     <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" height="90px" viewBox="0 -960 960 960" width="90px" fill="#FFFFFF"><path d="M292-120v-66.67h154.67v-140q-52.34-11-93.17-44.83T296-456q-74.33-8.33-125.17-61.83Q120-571.33 120-645.33V-688q0-27.67 19.5-47.17t47.17-19.5h96V-840h394.66v85.33h96q27.67 0 47.17 19.5T840-688v42.67q0 74-50.83 127.5Q738.33-464.33 664-456q-16.67 50.67-57.5 84.5t-93.17 44.83v140H668V-120H292Zm-9.33-406.67V-688h-96v42.67q0 42.66 27 75.16t69 43.5ZM480-390q54.67 0 92.67-38.33 38-38.34 38-93v-252H349.33v252q0 54.66 38 93Q425.33-390 480-390Zm197.33-136.67q42-11 69-43.5t27-75.16V-688h-96v161.33ZM480-582Z" /></svg>
+                        <img src="/trophy.svg" alt="" />
                     </div>
                     <div className="flex flex-col gap-5">
                         <h1 className="text-white max-w-[20ch] leading-tight font-inter font-semibold text-xl">
