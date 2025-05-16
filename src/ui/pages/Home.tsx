@@ -1,12 +1,16 @@
 // import Card from "../components/Card"
+import { useState } from "react"
 import Card from "../components/Card"
 import List from "../components/List"
 import OfferCard from "../components/OfferCard"
 
 
+
 // testing
 
 function Home() {
+
+	const [date,setDate] = useState(new Date())
 
 	const whatDoWeOffer = [
 		{
@@ -26,12 +30,12 @@ function Home() {
 		{
 			name : "Website Redesign & Maintenance",
 			icon : '/redesignAndMaintenance.svg',
-			description : "We're here to deliver web & software solutions, custom made for your business that stands out.",
+			description : "Not satisfied with the design you already have? No worries, we value transparency & working closely with your expectations.",
 			features : [
 				'Responsive Designs',
-				'Designs for all screen sizes',
-				'Custom designed assets',
-				'Custom Color Palletes',
+				'24/7 Monitoring Service',
+				'Transparency & Quick answering',
+				'Professional infrastructure',
 			],
 			categoryTag : 'Regular Updates & Monitoring',
 		},
@@ -39,15 +43,29 @@ function Home() {
 		{
 			name : "Custom Software Development",
 			icon : '/customMadeDesigns.svg',
-			description : "We're here to deliver web & software solutions, custom made for your business that stands out.",
+			description : "Our software, don't only look good, but also solves the problems, that needs to be solved.",
 			features : [
-				'Responsive Designs',
-				'Designs for all screen sizes',
-				'Custom designed assets',
-				'Custom Color Palletes'
+				'Lightning fast load',
+				'Lightweight Code',
+				'Robust performance architecture',
+				'Brand specific features'
 			],
 			categoryTag : 'Fully Customizable',
 		},
+
+		{
+			name : "SEO Optimization Services",
+			icon : '/seoArrow.svg',
+			description : "Rank in the top most possible rank in google searches, and land in your customer's minds.",
+			features : [
+				'Guaranteed website traffic',
+				'Regular SEO Updates',
+				'Industry keyword research',
+				'AI powered Optimization'
+			],
+			categoryTag : 'Go High Llevel',
+		},
+
 
 	]
 
@@ -149,11 +167,11 @@ function Home() {
 
 				<div className="flex flex-col items-center justify-center">
 					<h1 className="text-transparent px-4 bg-clip-text bg-linear-to-r from-red-500 to-blue-500 text-4xl font-inter font-bold italic">
-						- VS -
+						OR
 					</h1>
 				</div>
 
-				<div className="p-4 border-2 border-blue-600/80 rounded-2xl bg-radial-[at_50%_50%] from-black to-blue-600/50 flex flex-col gap-5">
+				<div className="p-4 border-2 border-gray-600/80 rounded-2xl bg-radial-[at_50%_50%] from-black to-blue-600/50 flex flex-col gap-5">
 					<div>
 						<h1 className="text-white font-inter text-2xl font-semibold pb-2">The Blue Team</h1>
 						<hr className="border-1 border-red-400/20" />
