@@ -10,7 +10,6 @@ import OfferCard from "../components/OfferCard"
 
 function Home() {
 
-	const [date,setDate] = useState(new Date())
 
 	const whatDoWeOffer = [
 		{
