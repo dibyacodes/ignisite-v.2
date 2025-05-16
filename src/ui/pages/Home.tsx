@@ -1,4 +1,5 @@
 // import Card from "../components/Card"
+import { Link } from "react-router-dom"
 import Card from "../components/Card"
 import List from "../components/List"
 import OfferCard from "../components/OfferCard"
@@ -12,56 +13,56 @@ function Home() {
 
 	const whatDoWeOffer = [
 		{
-			name : "Custom Website Design & Development",
-			icon : '/industryLevelCode.svg',
-			description : "We're here to deliver web & software solutions, custom made for your business that stands out.",
-			features : [
+			name: "Custom Website Design & Development",
+			icon: '/industryLevelCode.svg',
+			description: "We're here to deliver web & software solutions, custom made for your business that stands out.",
+			features: [
 				'Responsive Designs',
 				'Designs for all screen sizes',
 				'Custom designed assets',
 				'Custom Color Palletes',
 			],
-			categoryTag : 'High Performance',
+			categoryTag: 'High Performance',
 		},
 
 
 		{
-			name : "Website Redesign & Maintenance",
-			icon : '/redesignAndMaintenance.svg',
-			description : "Not satisfied with the design you already have? No worries, we value transparency & working closely with your expectations.",
-			features : [
+			name: "Website Redesign & Maintenance",
+			icon: '/redesignAndMaintenance.svg',
+			description: "Not satisfied with the design you already have? No worries, we value transparency & working closely with your expectations.",
+			features: [
 				'Responsive Designs',
 				'24/7 Monitoring Service',
 				'Transparency & Quick answering',
 				'Professional infrastructure',
 			],
-			categoryTag : 'Regular Updates & Monitoring',
+			categoryTag: 'Regular Updates & Monitoring',
 		},
 
 		{
-			name : "Custom Software Development",
-			icon : '/customMadeDesigns.svg',
-			description : "Our software, don't only look good, but also solves the problems, that needs to be solved.",
-			features : [
+			name: "Custom Software Development",
+			icon: '/customMadeDesigns.svg',
+			description: "Our software, don't only look good, but also solves the problems, that needs to be solved.",
+			features: [
 				'Lightning fast load',
 				'Lightweight Code',
 				'Robust performance architecture',
 				'Brand specific features'
 			],
-			categoryTag : 'Fully Customizable',
+			categoryTag: 'Fully Customizable',
 		},
 
 		{
-			name : "SEO Optimization Services",
-			icon : '/seoArrow.svg',
-			description : "Rank in the top most possible rank in google searches, and land in your customer's minds.",
-			features : [
+			name: "SEO Optimization Services",
+			icon: '/seoArrow.svg',
+			description: "Rank in the top most possible rank in google searches, and land in your customer's minds.",
+			features: [
 				'Guaranteed website traffic',
 				'Regular SEO Updates',
 				'Industry keyword research',
 				'AI powered Optimization'
 			],
-			categoryTag : 'Go High Llevel',
+			categoryTag: 'Go High Llevel',
 		},
 
 
@@ -108,13 +109,15 @@ function Home() {
 					<List subject="we help you with" items={list} />
 				</div>
 				<div className="flex flex-col gap-3">
-					<button className="border-2 border-gray-400/50 capitalize font-semibold rounded-full text-white font-inter text-lg px-2 py-2">
-						Book a Call
-					</button>
+					<Link className="flex flex-col" to='/appointment'>
+						<button className="border-2 border-gray-400/50 capitalize font-semibold rounded-full text-white font-inter text-lg px-2 py-2">
+							Book a Call
+						</button>
+					</Link>
 				</div>
 			</div>
 
-			
+
 
 			<div className="bg-black flex pb-30 flex-col justify-center items-center gap-5 px-4">
 				<div className="px-2">
@@ -131,8 +134,8 @@ function Home() {
 
 				<div className="flex flex-row overflow-y-hidden gap-5 overflow-x-scroll hide-scrollbar">
 					{
-						whatDoWeOffer.map((items)=>(
-							<OfferCard serviceToOffer={items}/>
+						whatDoWeOffer.map((items) => (
+							<OfferCard serviceToOffer={items} />
 						))
 					}
 

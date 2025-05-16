@@ -4,11 +4,13 @@ import './index.css'
 import App from './App.tsx'
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
 import Home from './ui/pages/Home.tsx'
+import Booking from './ui/pages/Booking.tsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App />}>
       <Route path='/' element={<Home/>} />
+      <Route path='/appointment' element={<Booking/>}/>
     </Route>
   )
 )
