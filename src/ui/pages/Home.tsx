@@ -1,5 +1,4 @@
 // import Card from "../components/Card"
-import { useState } from "react"
 import Card from "../components/Card"
 import List from "../components/List"
 import OfferCard from "../components/OfferCard"
