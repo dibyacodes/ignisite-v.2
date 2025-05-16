@@ -10,7 +10,34 @@ function Home() {
 
 	const whatDoWeOffer = [
 		{
-			name : "Custom Made Designs",
+			name : "Custom Website Design & Development",
+			icon : '/industryLevelCode.svg',
+			description : "We're here to deliver web & software solutions, custom made for your business that stands out.",
+			features : [
+				'Responsive Designs',
+				'Designs for all screen sizes',
+				'Custom designed assets',
+				'Custom Color Palletes',
+			],
+			categoryTag : 'High Performance',
+		},
+
+
+		{
+			name : "Website Redesign & Maintenance",
+			icon : '/redesignAndMaintenance.svg',
+			description : "We're here to deliver web & software solutions, custom made for your business that stands out.",
+			features : [
+				'Responsive Designs',
+				'Designs for all screen sizes',
+				'Custom designed assets',
+				'Custom Color Palletes',
+			],
+			categoryTag : 'Regular Updates & Monitoring',
+		},
+
+		{
+			name : "Custom Software Development",
 			icon : '/customMadeDesigns.svg',
 			description : "We're here to deliver web & software solutions, custom made for your business that stands out.",
 			features : [
@@ -22,18 +49,6 @@ function Home() {
 			categoryTag : 'Fully Customizable',
 		},
 
-		{
-			name : "Production Level Websites",
-			icon : '/industryLevelCode.svg',
-			description : "We're here to deliver web & software solutions, custom made for your business that stands out.",
-			features : [
-				'Responsive Designs',
-				'Designs for all screen sizes',
-				'Custom designed assets',
-				'Custom Color Palletes'
-			],
-			categoryTag : 'High Performance',
-		},
 	]
 
 	const services = [
@@ -81,6 +96,15 @@ function Home() {
 				</div>
 			</div>
 
+			
+
+			<div className="bg-black flex pb-30 flex-col justify-center items-center gap-5">
+				<div className="px-5">
+					<h1 className="text-white font-inter text-3xl font-semibold">Have an Idea? <b>We got you covered.</b></h1>
+				</div>
+				<Card title="There's a website for every idea" description={services} />
+			</div>
+
 			<div className="bg-black px-4 flex flex-col gap-10">
 				<div className="flex flex-col gap-3">
 					<h1 className="text-white text-4xl font-semibold font-inter capitalize">What do we have to offer?</h1>
@@ -96,15 +120,6 @@ function Home() {
 
 				</div>
 			</div>
-			
-
-			<div className="bg-black flex pt-30 flex-col justify-center items-center gap-5">
-				<div className="px-5">
-					<h1 className="text-white font-inter text-3xl font-semibold">Have an Idea? <b>We got you covered.</b></h1>
-				</div>
-				<Card title="There's a website for every idea" description={services} />
-			</div>
-
 			<div className="bg-black px-4 py-20 flex flex-col gap-10">
 				<div className="flex flex-col gap-2">
 					<h1 className="text-4xl font-inter text-gray-100 font-semibold capitalize">
