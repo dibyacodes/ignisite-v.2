@@ -95,8 +95,7 @@ function Home() {
 			<div className="w-[100%] px-4 h-svh flex flex-col bg-radial-[at_50%_0%] from-[#E100FF] to-black to-70% justify-center gap-5 ">
 
 				<div className="flex flex-col gap-2">
-					<h1 className="text-5xl font-semibold font-inter max-w-[20ch] text-left mt-10 text-transparent bg-clip-text bg-gradient-to-r from-gray-100 via-purple-200 to-gray-100">
-
+					<h1 className="text-5xl font-semibold font-inter max-w-[20ch] text-left pt-10 text-transparent bg-clip-text bg-gradient-to-r from-gray-100 via-purple-200 to-gray-100 object-cover leading-tight">
 						Scaling your business begins here.
 					</h1>
 					<p className="max-w-[30ch] md:flex text-left text-gray-200 leading-tight text-lg">
