@@ -47,6 +47,10 @@ export function Personal(){
         <>
         <div className="text-white font-inter text-3xl">
             hello {username}
+
+            {
+                username === "Mayukh Sarma" || "mayukh sarma" || "Mayukh" || "mayukh" ? `. You are gay` : ``
+            }
         </div>
         <form>
             <div>
