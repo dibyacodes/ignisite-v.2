@@ -12,10 +12,10 @@ function Booking() {
 
 
     const { onStep, next, prev, isFirstStep, isLastStep } = useMultiForm([
-    <Introduction/>,
-    <Personal/>, 
-    <DateAndTime/>
-])
+        <Introduction />,
+        <Personal />,
+        <DateAndTime />
+    ])
 
     // const subjectMatter = [
     //     {
@@ -49,13 +49,9 @@ function Booking() {
 
     return (
         <>
-            <div className="bg-radial-[at_100%_-50%] from-purple-500 to-white to-70% h-screen px-4 flex flex-col justify-center gap-5">
+            <div className="bg-radial-[at_100%_0%] from-purple-500 to-black to-70% h-screen py-10 px-4 flex flex-col justify-between gap-5">
                 {/* <Calendar value={date} onChange={(e)=>setDate(e.value)} selectRange/> */}
-                <div>
-                    <h1 className="text-5xl font-inter animate-bounce rotate-x-1">
-                        🚀
-                    </h1>
-                </div>
+
 
                 {/* <div className="flex flex-col gap-4">
                     <h1 className="text-gray-950 font-inter font-semibold text-3xl capitalize">
@@ -67,23 +63,24 @@ function Booking() {
                     </p>
                 </div> */}
 
-                <hr className="border-1 border-black/50 rounded-full" />
+                <div className="flex flex-col gap-10">
 
-                {
-                    onStep
-                }
+                    {
+                        onStep
+                    }
+                </div>
 
                 <div className="flex flex-col justify-between gap-5">
                     {
                         !isLastStep &&
-                        <button className="bg-black text-white text-lg font-inter px-4 py-1 rounded-md bottom-0.5 right-0.5" type="button" onClick={next}>
-                            next
+                        <button className="bg-white text-black text-lg font-inter px-4 py-1 rounded-md bottom-0.5 right-0.5" type="submit" onClick={next}>
+                            Next
                         </button>
                     }
 
                     {
                         !isFirstStep &&
-                        <button className="text-black text-lg font-inter px-4 py-1 rounded-md" type="button" onClick={prev}>
+                        <button className="text-white text-lg font-inter px-4 py-1 rounded-md" type="submit" onClick={prev}>
                             Back
                         </button>
                     }
@@ -91,7 +88,7 @@ function Booking() {
 
                     {
                         isLastStep &&
-                        <button className="bg-black text-white text-lg font-inter px-4 py-1 rounded-md">
+                        <button className="bg-white text-black text-lg font-inter px-4 py-1 rounded-md">
                             Book
                         </button>
                     }
