@@ -26,6 +26,7 @@ export function useMultiForm(step:ReactElement[]) {
         next,
         prev,
         currentStep,
+        step,
         onStep : step[currentStep],
         isFirstStep: currentStep === 0,
         isLastStep : currentStep >= step.length - 1

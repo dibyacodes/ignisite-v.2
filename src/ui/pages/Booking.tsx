@@ -11,7 +11,7 @@ function Booking() {
     // const [agenda,setAgenda] = useState("")
 
 
-    const { onStep, next, prev, isFirstStep, isLastStep } = useMultiForm([
+    const { onStep, next, prev, isFirstStep, isLastStep} = useMultiForm([
         <Introduction />,
         <Personal />,
         <DateAndTime />
@@ -49,7 +49,7 @@ function Booking() {
 
     return (
         <>
-            <div className="bg-radial-[at_100%_0%] from-purple-500 to-black to-70% h-screen py-10 px-4 flex flex-col justify-between gap-5">
+            <div className="bg-black h-screen py-10 px-4 flex flex-col gap-5">
                 {/* <Calendar value={date} onChange={(e)=>setDate(e.value)} selectRange/> */}
 
 
@@ -63,35 +63,52 @@ function Booking() {
                     </p>
                 </div> */}
 
-                <div className="flex flex-col gap-10">
 
-                    {
-                        onStep
-                    }
+                <div className="">
+                    <div className="flex flex-col gap-3">
+                        <h1 className="text-gray-100 font-semibold font-inter text-4xl">
+                            Book a call with us
+                        </h1>
+                        <p className="text-gray-200 font-inter leading-tight">
+                            Have an idea that you wanna sell? Sure let's see what we got to help you
+                        </p>
+                    </div>
                 </div>
 
-                <div className="flex flex-col justify-between gap-5">
-                    {
-                        !isLastStep &&
-                        <button className="bg-white text-black text-lg font-inter px-4 py-1 rounded-md bottom-0.5 right-0.5" type="submit" onClick={next}>
-                            Next
-                        </button>
-                    }
+                <div className="flex flex-col justify-end gap-5 bg-radial-[at_0%_50%] from-black to-purple-600 to-100% backdrop-blur-3xl p-6 rounded-xl">
+                    <div>
 
-                    {
-                        !isFirstStep &&
-                        <button className="text-white text-lg font-inter px-4 py-1 rounded-md" type="submit" onClick={prev}>
-                            Back
-                        </button>
-                    }
+                        <div className="relative">
+                            {onStep}
+                        </div>
 
 
-                    {
-                        isLastStep &&
-                        <button className="bg-white text-black text-lg font-inter px-4 py-1 rounded-md">
-                            Book
-                        </button>
-                    }
+                    </div>
+
+                    <div className="flex pt-5 flex-col gap-5 justify-center">
+                        {
+                            !isLastStep &&
+                            <button className="bg-white/30 text-white text-lg font-inter px-4 py-1 rounded-md" type="button" onClick={next}>
+                                {"Next"}
+                            </button>
+                        }
+                        {
+                            !isFirstStep &&
+                            <button className="text-white text-sm font-inter px-4 py-1 rounded-md" type="button" onClick={prev}>
+                               {"Back"}
+                            </button>
+                        }
+
+
+
+
+                        {
+                            isLastStep &&
+                            <button className="bg-black/50 text-black text-lg font-inter px-4 py-1 rounded-md">
+                                Book
+                            </button>
+                        }
+                    </div>
 
 
                 </div>
