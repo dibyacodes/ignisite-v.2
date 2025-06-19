@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import Card from "../components/Card"
 import List from "../components/List"
 import OfferCard from "../components/OfferCard"
+import TeamProfile from "../components/TeamProfile"
 
 
 
@@ -167,8 +168,8 @@ function Home() {
 				</div>
 
 				<div className="flex flex-col items-center justify-center">
-					<h1 className="text-purple-300 font-inter text-4xl font-bold">
-						OR
+					<h1 className="text-purple-100 font-inter text-4xl font-bold">
+						VS
 					</h1>
 				</div>
 
@@ -216,6 +217,10 @@ function Home() {
 						</h1>
 					</div>
 				</div>
+			</div>
+
+			<div className="bg-black px-3">
+				<TeamProfile name="Mayukh Sarma" tag={"Co-Founder & CFO"} bio="Organizing, monitoring & regulating the financial wheel at Webconsolers." email="mayukhsarma2004@gmail.com" phone={9435369509} whatsapp={true}/>
 			</div>
 	
 		</>
