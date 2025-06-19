@@ -21,7 +21,7 @@ function OfferCard({ serviceToOffer }: cardContent) {
                         {serviceToOffer.categoryTag}
                     </div>
                     <div className="flex flex-row items-center gap-5 justify-between">
-                        <h1 className="text-2xl leading-7 text-gray-900 md:max-w-[60%] font-inter font-semibold">
+                        <h1 className="text-2xl leading-7 text-gray-900 md:max-w-[60%] font-serif font-semibold">
                             {serviceToOffer.name}
                         </h1>
 

@@ -7,17 +7,13 @@
 
 
 export function Introduction() {
-
-   
-
-
    
     return (
         <>
             <div className="rounded-lg flex flex-col gap-10">
                 <div className="flex flex-col gap-2">
                     <h1 className="text-gray-100 text-2xl leading-tight font-inter font-semibold">
-                        Want to discuss about your business?
+                        Want to discuss about your business? 
                     </h1>
 
                     <p className="text-gray-300 leading-tight font-inter">
