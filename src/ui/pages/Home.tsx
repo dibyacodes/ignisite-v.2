@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import Card from "../components/Card"
 import List from "../components/List"
 import OfferCard from "../components/OfferCard"
+import BookingCard from "../components/BookingCard"
 
 
 
@@ -109,8 +110,8 @@ function Home() {
 				</div>
 				<div className="flex flex-col gap-3">
 					<Link className="flex flex-col" to='/appointment'>
-						<button className="border-2 border-gray-400/50 capitalize font-semibold rounded-full text-white font-inter text-lg px-2 py-2">
-							Book a Call
+						<button className="border-2 border-gray-400/50 capitalize font-semibold rounded-lg text-white font-inter text-lg px-2 py-2">
+							Book A Free Session
 						</button>
 					</Link>
 				</div>
@@ -166,7 +167,7 @@ function Home() {
 				</div>
 
 				<div className="flex flex-col items-center justify-center">
-					<h1 className="text-transparent px-4 bg-clip-text bg-linear-to-r from-red-500 to-blue-500 text-4xl font-inter font-bold italic">
+					<h1 className="text-purple-300 font-inter text-4xl font-bold">
 						OR
 					</h1>
 				</div>
@@ -189,6 +190,36 @@ function Home() {
 				</div>
 			</div>
 
+
+			<div className="bg-black px-3 flex flex-col gap-10 py-10">
+				<div className="flex flex-col gap-4">
+					<h1 className="text-purple-100 font-inter text-3xl">
+						<span>
+							<img className="pb-5" src={'./consultation.svg'} alt="" />
+						</span>
+						Book a <b>Free Consultation</b> today
+					</h1>
+					<p className="text-purple-200/70 font-inter text-md">
+						<b>Not sure what to do?</b>. Let us help you decide what's best for your business. Book a <b>Free 30 minute session now</b>
+					</p>
+				</div>
+
+				<div className="flex flex-col gap-1">
+					<div className="flex flex-col">
+						<button className="capitalize bg-purple-100 font-medium rounded-md text-black font-inter text-lg px-2 py-2">
+							Book a Slot
+						</button>
+					</div>
+					<div>
+						<h1 className="text-gray-300 font-inter text-sm text-center">
+						Access 30 minutes of free business IT solutions
+						</h1>
+					</div>
+				</div>
+			</div>
+	<div className="p-3">
+		<BookingCard/>
+	</div>
 		</>
 	)
 }

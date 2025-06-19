@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useMultiForm } from "../../customHooks/useMultiForm";
 
 
 
@@ -8,6 +9,8 @@ let username: string;
 export function Introduction() {
 
     const [name, setName] = useState('')
+
+
     username = name
     return (
         <>
@@ -29,19 +32,16 @@ export function Introduction() {
                         <label className="text-gray-100">Duration : </label>
                         <div className="flex gap-2">
                             <div className="flex flex-row gap-2 border-1 border-white/50 w-fit px-2 py-1 rounded-lg">
-                                <input  name="durationRadio" className="outline-none" autoFocus type="radio" />
+                                <input onChange={(e)=>console.log(e.target.value)} required value={"15 Min"}  name="durationRadio" className="outline-none" autoFocus type="radio" />
                                 <label htmlFor="15min">15 min</label>
                             </div>
 
                             <div className="flex flex-row gap-2 border-1 border-white/50 w-fit px-2 py-1 rounded-lg">
-                                <input name="durationRadio" className="outline-none" autoFocus type="radio"/>
+                                <input onChange={(e)=>console.log(e.target.value)} value={"30 Min"} required name="durationRadio" className="outline-none" autoFocus type="radio"/>
                                 <label htmlFor="30min">30 min</label>
                             </div>
 
-                            <div className="flex flex-row gap-2 border-1 border-white/50 w-fit px-2 py-1 rounded-lg">
-                                <input  name="durationRadio" className="outline-none" autoFocus type="radio" />
-                                <label htmlFor="60min">60 min</label>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
