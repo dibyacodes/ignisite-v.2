@@ -11,7 +11,7 @@ interface bookingDates {
 
 function DateContainer({ dates }: bookingDates) {
 
-	const [selectedIndex, setSelectedIndex] = useState(null);
+	const [selectedIndex, setSelectedIndex] = useState(NaN);
 
 	const days = [
 		'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'
