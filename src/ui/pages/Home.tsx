@@ -219,7 +219,7 @@ function Home() {
 				</div>
 			</div>
 
-			<div className="bg-radial-[at_10%_70%] from-[rgb(0,144,24)] to-black to-50% px-3 flex flex-col gap-15 py-20">
+			<div className="bg-radial-[at_90%_60%] from-[rgb(0,144,24)] to-black to-50% px-3 flex flex-col gap-15 py-20">
 				<div className="flex flex-col gap-4">
 					<h1 className="text-gray-100 text-5xl text-wrap font-inter capitalize font-medium">
 						behind webconsolers
