@@ -94,7 +94,7 @@ function Home() {
 		// bg-[radial-gradient(to_bottom,#E100FF_0%,black_30%)]
 		<>
 			{/* bg-radial-[at_x_y] */}
-			<div className="w-[100%] px-4 h-svh flex flex-col bg-radial-[at_50%_0%] from-[#E100FF] to-black to-70% justify-center gap-5 ">
+			<div className="w-[100%] px-4 h-svh flex flex-col bg-radial-[at_50%_0%] from-[rgb(0,144,24)] to-black to-70% justify-center gap-5 ">
 
 				<div className="flex flex-col gap-2">
 					<h1 className="text-5xl font-semibold font-inter max-w-[20ch] text-left pt-10 text-transparent bg-clip-text bg-gradient-to-r from-gray-100 via-purple-200 to-gray-100 object-cover leading-tight">
@@ -129,7 +129,7 @@ function Home() {
 
 			<div className="bg-black px-4 flex flex-col gap-10">
 				<div className="flex flex-col gap-3">
-					<h1 className="text-white text-4xl font-semibold font-inter capitalize">What do we have to offer?</h1>
+					<h1 className="text-white text-5xl font-semibold font-inter capitalize">What do we have to offer?</h1>
 					<p className="text-gray-500 font-inter font-medium leading-tight">We have a bunch of benefits to bring to the table. These are just a fraction of them!</p>
 				</div>
 
@@ -144,7 +144,7 @@ function Home() {
 			</div>
 			<div className="bg-black px-4 py-20 flex flex-col gap-10">
 				<div className="flex flex-col gap-2">
-					<h1 className="text-4xl font-inter text-gray-100 font-semibold capitalize">
+					<h1 className="text-5xl font-inter text-gray-100 font-semibold capitalize">
 						getting clients is actually simple
 					</h1>
 					<p className="text-white uppercase font-inter text-sm">
@@ -213,16 +213,27 @@ function Home() {
 					</div>
 					<div>
 						<h1 className="text-gray-300 font-inter text-sm text-center">
-						🔥 Access 30 minutes of free business IT solutions
+							🔥 Access 30 minutes of free business IT solutions
 						</h1>
 					</div>
 				</div>
 			</div>
 
-			<div className="bg-black px-3">
-				<TeamProfile name="Mayukh Sarma" tag={"Co-Founder & CFO"} bio="Organizing, monitoring & regulating the financial wheel at Webconsolers." email="mayukhsarma2004@gmail.com" phone={9435369509} whatsapp={true}/>
+			<div className="bg-radial-[at_10%_70%] from-[rgb(0,144,24)] to-black to-50% px-3 flex flex-col gap-15 py-20">
+				<div className="flex flex-col gap-4">
+					<h1 className="text-gray-100 text-5xl text-wrap font-inter capitalize font-medium">
+						behind webconsolers
+					</h1>
+					<p className="font-inter text-gray-200 leading-tight">
+						Get to know the people behind, responsible for maintaining & building robust beautiful websites for your business.
+					</p>
+				</div>
+				<div className="flex flex-col gap-5">
+					<TeamProfile name="Dibyajyoti Kumar" tag={"Founder & CEO"} bio="Building robust softwares & websites for your business to grow." email="mayukhsarma2004@gmail.com" phone={9435369509} whatsapp={true} />
+					<TeamProfile picture="./CFO_pfp.jpg" name="Mayukh Sarma" tag={"Co-Founder & CFO"} bio="Organizing, monitoring & regulating the financial wheel at Webconsolers." email="mayukhsarma2004@gmail.com" phone={9435369509} whatsapp={true} />
+				</div>
 			</div>
-	
+
 		</>
 	)
 }
