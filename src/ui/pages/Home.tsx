@@ -105,7 +105,7 @@ function Home() {
 			{/* bg-radial-[at_x_y] */}
 			{/* bg-radial-[at_50%_0%] from-[rgb(0,144,24)] to-black to-70% */}
 
-			<div className="w-[100%] bg-[url('./bg_final.jpg')] bg-no-repeat bg-cover px-4 h-svh flex flex-col justify-center gap-5 ">
+			<div className="w-[100%] bg-black bg-[url('./bg_final.jpg')] bg-no-repeat bg-cover px-4 h-svh flex flex-col justify-center gap-5 ">
 				
 				<div className="flex flex-col gap-2">
 					<h1 className="text-5xl font-semibold font-inter max-w-[20ch] text-left pt-10 text-transparent bg-clip-text bg-gradient-to-r from-gray-100 via-purple-200 to-gray-100 object-cover leading-tight">
