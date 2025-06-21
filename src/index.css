@@ -29,3 +29,25 @@ html {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;     /* Firefox */
 }
+
+
+/* AI */
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  50% {
+    background-position: -90% 50%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.animate-gradient {
+  animation: gradient-shift 7s ease infinite;
+  background: radial-gradient(circle closest-side at 50% 30%,rgb(170, 0, 255) 2%,black);
+  background-size: 200% 200%;
+}

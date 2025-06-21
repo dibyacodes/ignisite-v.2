@@ -10,11 +10,10 @@ interface profileInformation {
     whatsapp?: boolean
 }
 
-
 function TeamProfile({ name, picture = "./default_pfp.jpg", tag, bio, phone, email, whatsapp = false }: profileInformation) {
     return (
         <>
-            <div className="bg-gray-900/10 backdrop-blur-3xl border-2 border-gray-500/50 py-10 px-5 rounded-2xl flex flex-col gap-5">
+            <div className="bg-gray-300/10 backdrop-blur-3xl  py-10 px-5 rounded-2xl flex flex-col gap-5">
                 {/* profile photo */}
 
                 <div className="flex justify-between gap-5 items-start relative">
@@ -32,7 +31,6 @@ function TeamProfile({ name, picture = "./default_pfp.jpg", tag, bio, phone, ema
                         <Link to={`mailto:${email}`}>
                             <img src="./email.svg" alt="" />
                         </Link>
-
                     </div>
                 </div>
 
@@ -40,7 +38,7 @@ function TeamProfile({ name, picture = "./default_pfp.jpg", tag, bio, phone, ema
                     <h1 className="font-inter text-2xl font-semibold text-gray-100">
                         {name}
                     </h1>
-                    <p hidden={tag ? false : true} className="font-inter text-gray-900 text-sm bg-purple-100 w-fit px-4 py-1 rounded-lg">
+                    <p hidden={tag ? false : true} className="font-inter text-purple-900 text-sm bg-purple-100 w-fit px-4 py-1 rounded-lg">
                         <b>{tag}</b>
                     </p>
                 </div>

@@ -7,7 +7,7 @@ interface ListItems {
 export default function List({items,subject}:ListItems) {
 	return(
 		<>
-		<div className="bg-gray-500/20 backdrop-blur-3xl px-4 py-5 rounded-2xl flex flex-col gap-5">
+		<div className="bg-gray-500/20 backdrop-blur-xl px-4 py-5 rounded-2xl flex flex-col gap-5">
 
 		<div className="text-white font-inter text-xs uppercase tracking-widest">{subject}</div>
 

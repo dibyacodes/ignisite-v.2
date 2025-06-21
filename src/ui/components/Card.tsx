@@ -2,6 +2,7 @@
 interface cardDetails {
     title: string,
     description?: string[],
+    brief?: string,
 
 }
 
@@ -36,30 +37,33 @@ interface cardDetails {
 //     </div>
 // </div>
 
-function Card({ title, description }: cardDetails) {
+function Card({ title, description, brief }: cardDetails) {
     return (
         <>
-            <div className="border-2 bg-radial-[at_50%_100%] from-black to-purple-500/50 to-95% border-purple-500/50 flex flex-col items-center p-4 gap-5 py-10 justify-between rounded-2xl">
-                <div className="flex gap-5 flex-row justify-between items-center">
-                    <div>
-                        <img src="/trophy.svg" alt="" />
-                    </div>
-                    <div className="flex flex-col gap-5">
-                        <h1 className="text-white max-w-[20ch] leading-tight font-inter font-semibold text-xl">
-                            {title}
-                        </h1>
-                    </div>
+            <div className="border-2 bg-radial-[at_50%_100%] from-black to-purple-500/50 to-85% border-purple-500/50 flex flex-col items-center p-4 gap-5 py-10 justify-between rounded-3xl">
+                <div>
+                    <img width={150} src="/trophy.svg" alt="" />
                 </div>
-                <hr className="border-1 w-full border-gray-500/40" />
+                <div className="flex flex-col gap-5">
+                    <h1 className="text-white max-w-[50ch] capitalize leading-tight font-inter font-medium text-3xl">
+                        {title}
+                    </h1>
+
+                    <p className="text-gray-300 text-sm font-inter p-4  rounded-md backdrop-blur-3xl">
+                        {brief}
+                    </p>
+                </div>
+
                 <div className="flex flex-wrap gap-2">
                     {
-                        description?.map((items)=>(
+                        description?.map((items) => (
                             <h1 className="text-white font-inter px-2 rounded-md border-1 border-gray-100/50">
                                 {items}
                             </h1>
                         ))
                     }
                 </div>
+
             </div>
         </>
     )
