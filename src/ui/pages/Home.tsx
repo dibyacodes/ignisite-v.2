@@ -123,7 +123,7 @@ function Home() {
 				</div>
 				<div className="flex flex-col gap-3">
 					<Link className="flex flex-col" to='/appointment'>
-						<button className=" bg-white capitalize font-semibold rounded-full text-black font-inter text-lg px-2 py-2">
+						<button className=" bg-white uppercase font-semibold rounded-full text-black font-inter text-lg px-2 py-2">
 							Book A Free Session
 						</button>
 					</Link>
