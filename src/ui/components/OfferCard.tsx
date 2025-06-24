@@ -42,7 +42,7 @@ function OfferCard({ serviceToOffer }: cardContent) {
                         {
                             serviceToOffer.features.map((arrayItems) => (
                                 <div className="flex flex-row items-center gap-1">
-                                    <img src="/offerCardPoints.svg" alt="" />
+                                    <img src="/plus.svg" alt="" />
                                     <li className="font-inter font-medium text-gray-600">{arrayItems}</li>
                                 </div>
                             ))

@@ -47,7 +47,7 @@ html {
 }
 
 .animate-gradient {
-  animation: gradient-shift 7s ease infinite;
-  background: radial-gradient(circle closest-side at 50% 30%,rgb(170, 0, 255) 2%,black);
+  animation: gradient-shift 10s ease infinite;
+  background: radial-gradient(circle closest-side at 40% 30%,rgb(170, 0, 255) 2%,black);
   background-size: 200% 200%;
 }
