@@ -158,6 +158,9 @@ function Home() {
 			<div className="bg-black py-20 px-4 flex flex-col gap-10">
 
 				<div>
+					<div className="flex flex-col items-center justify-center bg-radial-[at_50%_50%] from-blue-600 to-black to-70%">
+						<img className="w-[50%]" src="/lockIcon.svg" alt="" />
+					</div>
 					<h1 className="text-white text-5xl font-inter font-semibold capitalize">
 						you'll get access to...
 					</h1>
