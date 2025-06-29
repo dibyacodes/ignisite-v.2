@@ -1,4 +1,0 @@
-// This file is used to specify files and directories that should be ignored by Prettier.
-
-/node_modules
-./dist
