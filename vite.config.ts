@@ -6,8 +6,12 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   server : {
-    allowedHosts : [
-      "3e4f-2405-201-a805-e01c-3ebb-f14c-9b86-8690.ngrok-free.app"
-    ]
+    // allowedHosts : [
+    //   "dfa3-2405-201-a805-e01c-b1f4-3d1b-fc88-fe3d.ngrok-free.app"
+    // ],
+
+    proxy:{
+      '/call':'https://b4f4-2405-201-a805-e01c-b1f4-3d1b-fc88-fe3d.ngrok-free.app'
+    }
   }
 })

@@ -20,7 +20,7 @@ function Home() {
                         </p>
 
                         <div className="flex gap-3 flex-row md:flex-row justify-center items-center">
-                            <Button customs="px-3 py-1" isDark buttonText="Get custom site" />
+                            <Button to="/appointment" customs="px-3 py-1" isDark buttonText="Get custom site" />
                             <Button customs="underline" buttonText="book a call" />
                         </div>
 
@@ -115,11 +115,20 @@ function Home() {
             </section>
 
 
-            {/* <section className="px-3 bg-black">
-                <div>
-                    <Cards cardImage="/consultation.svg" cardTag="free 30 min consultation" cardButtonText="book a call" cardTitle="ready to make more revenue?" />
+            <section className="px-3 bg-black py-20 flex flex-col">
+                <div className="flex flex-col items-center justify-center">
+                    <p className="text-blue-400 font-semibold font-inter capitalize text-xl">
+                        all your queries answered
+                    </p>
+                    <h1 className="md:text-5xl text-white font-inter font-semibold capitalize md:max-w-[50%] text-center">
+                        Ready to achieve your financial goals with your business?
+                    </h1>
                 </div>
-            </section> */}
+                <div className="flex justify-center bg-radial-[at_50%_50%] from-blue-500 to-black to-90% pt-15 gap-5">
+                    <Cards cardImage="/consultation.svg" cardTag="free 30 min consultation" cardButtonText="book a call" cardTitle="Book a consultation to know what's best for you." />
+                    <Cards cardImage="/conference.svg" cardTag="reach us out instantly" cardButtonText="book a call" cardTitle="whatsapp numbers or phone call numbers to be added" />
+                </div>
+            </section>
 
         </>
     )
