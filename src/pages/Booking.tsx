@@ -15,11 +15,10 @@ function Booking() {
     const [phone,setPhone] = useState("")
 
     useEffect(() => {
-        axios.get('/call/bookings').then((res) => setBookingList(res.data.message || [])).catch((err) => console.log(err))
-
+        axios.get('https://b4f4-2405-201-a805-e01c-b1f4-3d1b-fc88-fe3d.ngrok-free.app/call/bookings').then((res) => setBookingList(res.data.message || [])).catch((err) => console.log(err))
     })
     
-    function handclick(){
+    async function handclick(){
         const sendData = {
             name : name,
             time : time,
@@ -27,7 +26,7 @@ function Booking() {
             phone : phone
         }
         
-        axios.post('/call/appointment',sendData)
+        await axios.post('https://b4f4-2405-201-a805-e01c-b1f4-3d1b-fc88-fe3d.ngrok-free.app/call/appointment',sendData)
         .then((res)=>console.log(res.data))
         .catch((err)=>console.log(err))
         
