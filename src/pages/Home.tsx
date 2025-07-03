@@ -63,7 +63,7 @@ function Home() {
                     {/* horizontal scrolling cards */}
                     <div className="flex flex-row overflow-y-hidden gap-5 overflow-x-scroll hide-scrollbar py-5 px-4 lg:pl-[10%] snap-x md:snap-none snap-mandatory">
 
-                        <Cards cardImage="/admin-fill.svg" cardDesc="We design admin pages tailored to your workflow, giving you control and clarity with a user-friendly experience." cardTitle="personalized admin pages" />
+                        <Cards cardImage="/owner-fill.svg" cardDesc="We design admin pages tailored to your workflow, giving you control and clarity with a user-friendly experience." cardTitle="personalized admin pages" />
 
                         <Cards cardImage="/custom-size.svg" cardDesc="We craft distinctive brand identities that help your business stand out and connect with your audience." cardTitle="Custom Branding for your business" />
 
@@ -124,7 +124,7 @@ function Home() {
                         Ready to achieve your financial goals with your business?
                     </h1>
                 </div>
-                <div className="flex justify-center bg-radial-[at_50%_50%] from-blue-500 to-black to-90% pt-15 gap-5">
+                <div className="flex flex-col md:flex-row items-center justify-center bg-radial-[at_50%_50%] from-blue-500 to-black to-90% pt-15 gap-5">
                     <Cards cardImage="/consultation.svg" cardTag="free 30 min consultation" cardButtonText="book a call" cardTitle="Book a consultation to know what's best for you." />
                     <Cards cardImage="/conference.svg" cardTag="reach us out instantly" cardButtonText="book a call" cardTitle="whatsapp numbers or phone call numbers to be added" />
                 </div>

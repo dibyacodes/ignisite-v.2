@@ -11,7 +11,9 @@ export default defineConfig({
     // ],
 
     proxy:{
-      '/call':'https://b4f4-2405-201-a805-e01c-b1f4-3d1b-fc88-fe3d.ngrok-free.app'
+      // this only works in the local machine
+      '/call':'http://localhost:8080',
+      '/admin':'http://localhost:8080'
     }
   }
 })
