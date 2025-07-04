@@ -16,7 +16,7 @@ function AdminDash() {
     const [databaseData, setDatabaseDate] = useState([])
 
     useEffect(() => {
-        axios.get('https://2medx1om4qnk.share.zrok.io/admin/allbookings').then((res) => console.log(res)).catch((err) => console.log(err))
+        axios.get('https://reached-clarke-departmental-pj.trycloudflare.com/admin/allbookings').then((res) => console.log(res)).catch((err) => console.log(err))
         console.log(databaseData)
         setDatabaseDate([])
     }, [])

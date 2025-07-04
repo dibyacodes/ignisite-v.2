@@ -22,7 +22,7 @@ function Booking() {
             phone : phone,
         }
         
-        await axios.post('https://2medx1om4qnk.share.zrok.io/call/appointment',sendData)
+        await axios.post('https://reached-clarke-departmental-pj.trycloudflare.com/call/appointment',sendData)
         .then((res)=>console.log(res.data))
         .catch((err)=>console.log(err))
         

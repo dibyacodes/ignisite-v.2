@@ -16,7 +16,7 @@ function AdminLogIn() {
         }
 
         try {
-            axios.post('https://2medx1om4qnk.share.zrok.io/admin/signin', adminData, {withCredentials:true})
+            axios.post('https://reached-clarke-departmental-pj.trycloudflare.com/admin/signin', adminData, {withCredentials:true})
                 .then((res) => res.data.success === true ? navigate('/dashboard') : setErrorMsg(res.data.message))
         } catch (error : unknown) {
             return setErrorMsg('An unexpected error occurred')
