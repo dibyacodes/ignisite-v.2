@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router";
+
 
 interface bookingDetails {
     client_name: string,
