@@ -16,7 +16,7 @@ function AdminLogIn() {
         }
 
         try {
-            axios.post('https://25d3-2405-201-a805-e01c-10b7-23b7-3cac-dcdc.ngrok-free.app/admin/signin', adminData)
+            axios.post('https://25d3-2405-201-a805-e01c-10b7-23b7-3cac-dcdc.ngrok-free.app/admin/signin', adminData, {withCredentials:true})
                 .then((res) => res.data.success === true ? navigate('/dashboard') : setErrorMsg(res.data.message))
         } catch (error : unknown) {
             return setErrorMsg('An unexpected error occurred')
