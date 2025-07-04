@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 
 function Booking() {
@@ -10,20 +10,19 @@ function Booking() {
     const [time,setTime] = useState("")
     const [date,setDate] = useState("")
     const [phone,setPhone] = useState("")
+    const [email,setEmail] = useState("")
 
-    // useEffect(() => {
-    //     axios.get('/call/bookings').then((res) => setBookingList(res.data.message || [])).catch((err) => console.log(err))
-    // })
     
     async function handclick(){
         const sendData = {
             name : name,
+            email : email,
             time : time,
             date : date,
-            phone : phone
+            phone : phone,
         }
         
-        await axios.post('/call/appointment',sendData)
+        await axios.post('https://25d3-2405-201-a805-e01c-10b7-23b7-3cac-dcdc.ngrok-free.app/call/appointment',sendData)
         .then((res)=>console.log(res.data))
         .catch((err)=>console.log(err))
         
@@ -40,6 +39,7 @@ function Booking() {
             <div>
                 <div>
                     <input onChange={(e)=>setName(e.target.value)} placeholder="name" type="text" className="bg-gray-200"/>
+                    <input onChange={(e)=>setEmail(e.target.value)} placeholder="email" type="email" className="bg-gray-200"/>
 
                     <input onChange={(e)=>setTime(e.target.value)} placeholder="time" type="time" className="bg-gray-200"/>
 

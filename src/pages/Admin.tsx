@@ -11,7 +11,7 @@ function Admin(){
     const [databaseResponse,setDatabaseResponse] = useState([])
 
     useEffect(()=>{
-        axios.get('/admin/appointments')
+        axios.get('https://25d3-2405-201-a805-e01c-10b7-23b7-3cac-dcdc.ngrok-free.app/admin/appointments')
         .then((res)=>setDatabaseResponse(res.data.message))
         .catch((err)=>console.log(err))
     })

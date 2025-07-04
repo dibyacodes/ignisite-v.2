@@ -6,6 +6,8 @@ import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } 
 import Home from './pages/Home.tsx'
 import Booking from './pages/Booking.tsx'
 import Admin from './pages/Admin.tsx'
+import AdminLogIn from './pages/AdminLogIn.tsx'
+import AdminDash from './pages/AdminDash.tsx'
 
 
 const router = createBrowserRouter(
@@ -14,6 +16,8 @@ const router = createBrowserRouter(
       <Route path='/' element={<Home/>} />
       <Route path='/appointment' element={<Booking/>}/>
       <Route path='/access' element={<Admin/>}/>
+      <Route path='/login' element={<AdminLogIn/>}/>
+      <Route path='/dashboard' element={<AdminDash/>}/>
     </Route>
   )
 )
