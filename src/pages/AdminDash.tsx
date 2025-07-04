@@ -21,7 +21,7 @@ function AdminDash() {
     return (
         <>
             <div className="flex flex-row gap-5 flex-wrap justify-center items-center pt-[5%]">
-                {
+                {Array.isArray(databaseData) &&
                     databaseData.map((items: bookingDetails) => (
                         <div className="bg-black p-6 min-w-[50ch] rounded-lg">
                             <div className="flex flex-col gap-2">
