@@ -16,7 +16,7 @@ function AdminDash() {
     const [databaseData, setDatabaseDate] = useState([])
 
     useEffect(() => {
-        axios.get('https://25d3-2405-201-a805-e01c-10b7-23b7-3cac-dcdc.ngrok-free.app/admin/allbookings').then((res) => console.log(res)).catch((err) => console.log(err))
+        axios.get('https://2medx1om4qnk.share.zrok.io/admin/allbookings').then((res) => console.log(res)).catch((err) => console.log(err))
         console.log(databaseData)
         setDatabaseDate([])
     }, [])
