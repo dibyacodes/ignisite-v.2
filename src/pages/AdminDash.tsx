@@ -17,6 +17,7 @@ function AdminDash() {
 
     useEffect(() => {
         axios.get('https://25d3-2405-201-a805-e01c-10b7-23b7-3cac-dcdc.ngrok-free.app/admin/allbookings').then((res) => setDatabaseDate(res.data.message)).catch((err) => console.log(err))
+        console.log(databaseData)
     }, [])
     return (
         <>
@@ -28,16 +29,16 @@ function AdminDash() {
                                 <h1 className="font-inter text-gray-100 capitalize text-2xl font-semibold">
                                     {items.client_name}
                                 </h1>
-                                <Link to={`mailto:${items.email}`}>
+                                <a href={`mailto:${items.email}`}>
                                     <p className="font-inter bg-gray-500/50 w-fit px-4 py-1 rounded-md text-white">
                                         {items.email}
                                     </p>
-                                </Link>
-                                <Link to={`tel:${items.phone}`}>
+                                </a>
+                                <a href={`tel:${items.phone}`}>
                                     <p className="font-inter w-fit rounded-md text-white">
                                         {items.phone}
                                     </p>
-                                </Link>
+                                </a>
                             </div>
 
                             <div>
