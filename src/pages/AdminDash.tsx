@@ -19,7 +19,7 @@ function AdminDash() {
 
     useEffect(() => {
         try {
-            axios.get('/admin/allbookings')
+            axios.get('https://dbda-2405-201-a805-e01c-b72b-b381-4adc-b75b.ngrok-free.app/admin/allbookings')
             .then((res)=>{
                 setDatabaseData(res.data.message)
             })
