@@ -16,11 +16,11 @@ function Home() {
                             designed for business, built for you</h1>
 
                         <p className="hidden md:flex md:text-xl font-inter text-gray-300 font-medium md:w-[70ch] leading-tight">
-                            Discover industry standard website & software development services customize for your business and take your business to its potential.
+                            Discover industry standard website & software development services customize for your business that converts viewers to customers.
                         </p>
 
                         <div className="flex gap-3 flex-row md:flex-row justify-center items-center">
-                            <Button to="/appointment" customs="px-3 py-1" isDark buttonText="Get custom site" />
+                            <Button to="/appointment" customs="px-3 py-1 bg-white text-gray-900" buttonText="Get custom site" />
                             <Button customs="underline" buttonText="book a call" />
                         </div>
 
@@ -31,22 +31,22 @@ function Home() {
                 {/* services section with cards - horizontal scrolling for mobile devices and optional horizontal scroll for desktops */}
                 <section className=" py-20">
                     <div className="px-4 lg:ml-[10%]">
-                        <h1 className="md:text-3xl font-inter md:font-medium capitalize text-2xl font-semibold text-gray-300 md:text-gray-200">
+                        <h1 className="md:text-3xl font-inter md:font-medium md:max-w-[30ch] capitalize text-2xl font-semibold text-gray-300 md:text-gray-200">
                             {/* building unapologetically modern websites & software */}
-                            we're upgrading rapidly. check what's new
+                            Discover our latest services. Review our recently added web solutions
                         </h1>
                     </div>
 
                     {/* horizontal scrolling cards */}
                     <div className="flex flex-row overflow-y-hidden gap-5 overflow-x-scroll hide-scrollbar py-5 px-4 lg:pl-[10%]">
 
-                        <Cards cardButtonText="send request" cardImage="/custom_website.svg" cardTag="branding + web design" cardDesc="We bring your ideas to the web. Discover uniquely modern websites custom-made for your business." cardTitle="Custom Built websites" />
+                        <Cards cardButtonText="send request" cardImage="/custom_website.svg" cardTag="branding + web design" cardDesc="Your website is your brand's digital home. Discover uniquely modern websites custom-made for your business" cardTitle="Custom Built websites" />
 
-                        <Cards cardButtonText="send request" cardImage="/redesign.svg" cardTag="Web Design + Figma" cardDesc="Professional UI designers redesign your website to match your brand & communicate your services." cardTitle="website redesign & maintenance" />
+                        <Cards cardButtonText="send request" cardImage="/redesign.svg" cardTag="Web Design + Figma" cardDesc="We refine software functions to increase efficiency and align your systems for flawless operation." cardTitle="website redesign & maintenance" />
 
-                        <Cards cardButtonText="send request" cardImage="/automation.svg" cardTag="Programming + AI" cardDesc="Integrate AI to your automate mudane tasks & speed up your sales rapidly with custom made softwares." cardTitle="Custom Softwares & Automations" />
+                        <Cards cardButtonText="send request" cardImage="/automation.svg" cardTag="Programming + AI" cardDesc="Integrated AI to automate mundane tasks & connecting your systems for reliable, seamless operations" cardTitle="Custom Softwares & Automations" />
 
-                        <Cards cardButtonText="send request" cardImage="/seo.svg" cardTag="SEO + Branding" cardDesc="Let people see your business pop up in the top of their searches. Being in sight is being in mind." cardTitle="SEO Optimization Services" />
+                        <Cards cardButtonText="send request" cardImage="/seo.svg" cardTag="SEO + Branding" cardDesc="Place your business in the top of the internet for your target audience. Being in sight is being in mind." cardTitle="SEO Optimization Services" />
 
                     </div>
                 </section>
@@ -56,7 +56,7 @@ function Home() {
                     <div className="px-4 lg:ml-[10%]">
                         <h1 className="md:text-3xl font-inter md:font-medium capitalize md:max-w-[50ch] text-2xl font-semibold text-gray-300 md:text-gray-200">
                             {/* building unapologetically modern websites & software */}
-                            We believe in giving value first. we build website that doesn't only looks good, but also sells good.
+                            Delivering value first is our first priority.
                         </h1>
                     </div>
 
@@ -71,7 +71,7 @@ function Home() {
 
                         <Cards cardImage="/sparkling-fill.svg" cardDesc="We create visually striking, interactive designs that captivate users and elevate your brand's digital presence." cardTitle="dynamic & aestheic designs" />
 
-                        <Cards cardImage="/shield-fill.svg" cardDesc="We safeguard your data with advanced encryption and secure connections, ensuring your business stays protected online." cardTitle="top-notch security & connections" />
+                        <Cards cardImage="/shield-fill.svg" cardDesc="We employ advanced encryption protocols and secure connections to maintain the highest level of protection for your business." cardTitle="top-notch security & connections" />
 
                     </div>
                 </section>
@@ -80,7 +80,7 @@ function Home() {
                     <div className="px-4 lg:ml-[10%]">
                         <h1 className="md:text-3xl font-inter md:font-medium capitalize md:max-w-[50ch] text-2xl font-semibold text-gray-300 md:text-gray-200">
                             {/* building unapologetically modern websites & software */}
-                            why clients choose us? More reasons to work with us.
+                            the <b>IgniSite Advantage</b>. <br /> your trusted ally in web-development
                         </h1>
                     </div>
 
@@ -124,7 +124,7 @@ function Home() {
                         Ready to achieve your financial goals with your business?
                     </h1>
                 </div>
-                <div className="flex flex-col md:flex-row items-center justify-center bg-radial-[at_50%_50%] from-blue-500 to-black to-90% pt-15 gap-5">
+                <div className="flex flex-col md:flex-row items-center md:items-stretch justify-center bg-radial-[at_50%_50%] from-blue-500 to-black to-90% pt-15 gap-5">
                     <Cards cardImage="/consultation.svg" cardTag="free 30 min consultation" cardButtonText="book a call" cardTitle="Book a consultation to know what's best for you." />
                     <Cards cardImage="/conference.svg" cardTag="reach us out instantly" cardButtonText="book a call" cardTitle="whatsapp numbers or phone call numbers to be added" />
                 </div>
