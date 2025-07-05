@@ -13,7 +13,7 @@ interface bookingDetails {
 
 function AdminDash() {
 
-    const [databaseData, setDatabaseData] = useState([])
+    // const [databaseData, setDatabaseData] = useState([])
 
 
 
@@ -21,7 +21,9 @@ function AdminDash() {
         try {
             axios.get('https://dbda-2405-201-a805-e01c-b72b-b381-4adc-b75b.ngrok-free.app/admin/allbookings')
             .then((res)=>{
-                setDatabaseData(res.data.message)
+                // setDatabaseData(res.data.message)
+                console.log(res);
+                
             })
 
         } catch (error) {
@@ -29,14 +31,10 @@ function AdminDash() {
             // console.log(error.message);
         }
     }, [])
-
-    useEffect(()=>{
-        console.log(databaseData);
-    },[])
     
     return (
         <>
-            <div className="flex flex-row gap-5 flex-wrap justify-center items-center pt-[5%]">
+            {/* <div className="flex flex-row gap-5 flex-wrap justify-center items-center pt-[5%]">
                 {Array.isArray(databaseData) &&
                     databaseData.map((items: bookingDetails) => (
                         <div className="bg-black p-6 min-w-[50ch] rounded-lg">
@@ -74,6 +72,10 @@ function AdminDash() {
                         </div>
                     ))
                 }
+            </div> */}
+
+            <div>
+                hi
             </div>
         </>
     )
