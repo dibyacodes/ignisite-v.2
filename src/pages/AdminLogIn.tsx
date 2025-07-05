@@ -16,7 +16,7 @@ function AdminLogIn() {
         }
 
         try {
-            axios.post('https://perfume-participated-coast-title.trycloudflare.com/admin/signin',adminData).then((res)=> res.data.access ? console.log(res.data.access) : console.log(`Login Failed`))
+            axios.post('https://perfume-participated-coast-title.trycloudflare.com/admin/signin',adminData).then((res)=> res.data.success ? navigate('/dashboard') : console.log(`Login Failed`))
 
 
         } catch (error: unknown) {
