@@ -19,7 +19,7 @@ function AdminDash() {
 
     useEffect(() => {
         try {
-            axios.get('https://perfume-participated-coast-title.trycloudflare.com/admin/allbookings')
+            axios.get('https://perfume-participated-coast-title.trycloudflare.com/admin/allbookings',{withCredentials:true})
             .then((res)=>{
                 setDatabaseData(res.data.message)
             })
