@@ -13,12 +13,27 @@ interface bookingDetails {
 
 function AdminDash() {
 
-    const [databaseData, setDatabaseDate] = useState([])
+    const [databaseData, setDatabaseData] = useState([])
+
+
 
     useEffect(() => {
-        axios.get('https://reached-clarke-departmental-pj.trycloudflare.com/admin/allbookings').then((res) => setDatabaseDate(res.data.message)).then((res)=>console.log(res)).catch((err) => console.log(err))
-        console.log(databaseData)
+        try {
+            axios.get('https://perfume-participated-coast-title.trycloudflare.com/admin/allbookings')
+            .then((res)=>{
+                setDatabaseData(res.data.message)
+            })
+
+        } catch (error) {
+            console.log(`An Error Occured`)
+            // console.log(error.message);
+        }
     }, [])
+
+    useEffect(()=>{
+        console.log(databaseData);
+    },[])
+    
     return (
         <>
             <div className="flex flex-row gap-5 flex-wrap justify-center items-center pt-[5%]">
@@ -28,6 +43,7 @@ function AdminDash() {
                             <div className="flex flex-col gap-2">
                                 <h1 className="font-inter text-gray-100 capitalize text-2xl font-semibold">
                                     {items.client_name}
+
                                 </h1>
                                 <a href={`mailto:${items.email}`}>
                                     <p className="font-inter bg-gray-500/50 w-fit px-4 py-1 rounded-md text-white">

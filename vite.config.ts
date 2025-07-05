@@ -6,9 +6,9 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   server : {
-    // allowedHosts : [
-    //   "dfa3-2405-201-a805-e01c-b1f4-3d1b-fc88-fe3d.ngrok-free.app"
-    // ],
+    allowedHosts : [
+      "818c-2405-201-a805-e01c-b72b-b381-4adc-b75b.ngrok-free.app"
+    ],
 
     proxy:{
       // this only works in the local machine

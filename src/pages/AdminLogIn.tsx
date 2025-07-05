@@ -16,9 +16,10 @@ function AdminLogIn() {
         }
 
         try {
-            axios.post('https://reached-clarke-departmental-pj.trycloudflare.com/admin/signin', adminData)
-                .then((res) => res.data.success === true ? navigate('/dashboard') : setErrorMsg(res.data.message))
-        } catch (error : unknown) {
+            axios.post('https://perfume-participated-coast-title.trycloudflare.com/admin/signin',adminData).then((res)=> res.data.success === true ? navigate('/dashboard') : console.log(`Login Failed`))
+
+
+        } catch (error: unknown) {
             return setErrorMsg('An unexpected error occurred')
         }
 
