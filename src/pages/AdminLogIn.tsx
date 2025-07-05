@@ -16,7 +16,7 @@ function AdminLogIn() {
         }
 
         try {
-            axios.post('https://perfume-participated-coast-title.trycloudflare.com/admin/signin',adminData).then((res)=> res.data.success ? navigate('/dashboard') : console.log(`Login Failed`))
+            axios.post('https://dbda-2405-201-a805-e01c-b72b-b381-4adc-b75b.ngrok-free.app/admin/signin',adminData).then((res)=> res.data.success ? navigate('/dashboard') : console.log(`Login Failed`))
 
 
         } catch (error: unknown) {
