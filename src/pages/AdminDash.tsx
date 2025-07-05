@@ -1,19 +1,19 @@
-import { useEffect} from "react";
+import { useEffect,useState} from "react";
 import axios from "axios";
 
 
-// interface bookingDetails {
-//     client_name: string,
-//     email: string,
-//     phone: number,
-//     meeting_date: string,
-//     meeting_time: string
-// }
+interface bookingDetails {
+    client_name: string,
+    email: string,
+    phone: number,
+    meeting_date: string,
+    meeting_time: string
+}
 
 
 function AdminDash() {
 
-    // const [databaseData, setDatabaseData] = useState([])
+    const [databaseData, setDatabaseData] = useState([])
 
 
 
@@ -33,7 +33,7 @@ function AdminDash() {
     
     return (
         <>
-            {/* <div className="flex flex-row gap-5 flex-wrap justify-center items-center pt-[5%]">
+            <div className="flex flex-row gap-5 flex-wrap justify-center items-center pt-[5%]">
                 {Array.isArray(databaseData) &&
                     databaseData.map((items: bookingDetails) => (
                         <div className="bg-black p-6 min-w-[50ch] rounded-lg">
@@ -71,10 +71,6 @@ function AdminDash() {
                         </div>
                     ))
                 }
-            </div> */}
-
-            <div>
-                hi
             </div>
         </>
     )
