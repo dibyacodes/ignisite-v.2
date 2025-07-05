@@ -21,8 +21,7 @@ function AdminDash() {
         try {
             axios.get('https://dbda-2405-201-a805-e01c-b72b-b381-4adc-b75b.ngrok-free.app/admin/allbookings',{headers : {'ngrok-skip-browser-warning' : 'any-value'},withCredentials:true})
             .then((res)=>{
-                // setDatabaseData(res.data.message)
-                console.log(res);
+                setDatabaseData(res.data.message)
             })
 
         } catch (error) {
