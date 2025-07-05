@@ -22,7 +22,7 @@ function Booking() {
             phone : phone,
         }
         
-        await axios.post('/call/appointment',sendData)
+        await axios.post('https://dbda-2405-201-a805-e01c-b72b-b381-4adc-b75b.ngrok-free.app/call/appointment',sendData)
         .then((res)=>console.log(res.data))
         .catch((err)=>console.log(err))
         
