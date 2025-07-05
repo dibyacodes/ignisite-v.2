@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import axios from "axios";
 
 
-interface bookingDetails {
-    client_name: string,
-    email: string,
-    phone: number,
-    meeting_date: string,
-    meeting_time: string
-}
+// interface bookingDetails {
+//     client_name: string,
+//     email: string,
+//     phone: number,
+//     meeting_date: string,
+//     meeting_time: string
+// }
 
 
 function AdminDash() {
@@ -23,7 +23,6 @@ function AdminDash() {
             .then((res)=>{
                 // setDatabaseData(res.data.message)
                 console.log(res);
-                
             })
 
         } catch (error) {
