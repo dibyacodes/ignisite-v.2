@@ -1,6 +1,0 @@
-[[headers]]
-for = "/admin/*"
-[headers.values]
-Access-Control-Allow-Origin = "https://webconsolers.netlify.app"
-Access-Control-Allow-Credentials = "true"
-Access-Control-Expose-Headers = "Set-Cookie"
