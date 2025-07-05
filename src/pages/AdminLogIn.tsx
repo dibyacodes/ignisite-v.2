@@ -7,18 +7,18 @@ function AdminLogIn() {
     const [password, setPassword] = useState('')
     const [errorMsg, setErrorMsg] = useState('')
     const navigate = useNavigate()
+    const [buttonState,setButtonState] = useState('Log In')
 
     async function handleSubmit() {
 
+        setButtonState('Logging In ...')
         const adminData = {
             admin_name: username,
             password: password
         }
 
         try {
-            axios.post('https://dbda-2405-201-a805-e01c-b72b-b381-4adc-b75b.ngrok-free.app/admin/signin',adminData,{withCredentials:true}).then((res)=> res.data.success ? navigate('/dashboard') : console.log(`Login Failed`))
-
-
+            axios.post('https://dbda-2405-201-a805-e01c-b72b-b381-4adc-b75b.ngrok-free.app/admin/signin',adminData,{withCredentials:true}).then((res)=> res.data.success ? setTimeout(() => {navigate('/dashboard')}, 2000) : console.log(`Login Failed`))
         } catch (error: unknown) {
             return setErrorMsg('An unexpected error occurred')
         }
@@ -38,7 +38,7 @@ function AdminLogIn() {
                 <input className="bg-white w-[25%] px-2 py-2" onChange={(e) => setPassword(e.target.value)} type="text" placeholder="password" />
 
                 <button onClick={handleSubmit} className="bg-white text-xl px-4 py-2">
-                    Log In
+                    {buttonState}
                 </button>
             </div>
         </>
