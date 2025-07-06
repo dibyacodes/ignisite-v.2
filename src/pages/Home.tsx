@@ -3,9 +3,10 @@ import Cards from "../components/Cards"
 // import Pop from "../components/Pop"
 
 function Home() {
+    
     return (
         <>
-            <div className="bg-radial-[at_50%_0%] from-blue-600 to-black to-40% h-full py-10">
+            <div className="bg-black to-40% h-full py-10">
 
                 {/* hero section */}
                 <section className="flex pt-30 md:pt-[5%] justify-center">
@@ -20,8 +21,8 @@ function Home() {
                         </p>
 
                         <div className="flex gap-3 flex-row md:flex-row justify-center items-center">
-                            <Button to="/appointment" customs="px-3 py-1 bg-white text-gray-900" buttonText="Get custom site" />
-                            <Button customs="underline" buttonText="book a call" />
+                            <Button to="/appointment/1" customs="px-3 py-1 bg-white text-gray-900" buttonText="Get custom site" />
+                            <Button to="/appointment/0" customs="underline" buttonText="book a call" />
                         </div>
 
                     </div>

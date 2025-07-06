@@ -1,58 +1,226 @@
 import axios from "axios";
 import { useState } from "react";
+import { useParams } from "react-router";
+
 
 
 function Booking() {
 
-    // const [bookingList, setBookingList] = useState([])
 
-    const [name,setName] = useState("")
-    const [time,setTime] = useState("")
-    const [date,setDate] = useState("")
-    const [phone,setPhone] = useState("")
-    const [email,setEmail] = useState("")
+    const { tab } = useParams()
 
-    
-    async function handclick(){
-        const sendData = {
-            name : name,
-            email : email,
-            time : time,
-            date : date,
-            phone : phone,
+    const defaultSelectedTab = tab ? parseInt(tab) : 0
+
+    const [name, setName] = useState("")
+    const [time, setTime] = useState("")
+    const [date, setDate] = useState({})
+    const [phone, setPhone] = useState("")
+    const [email, setEmail] = useState("")
+    const callServices = ['book a consultation', 'send request for a service']
+    const [selectedCallService, setselectedCallService] = useState(callServices[defaultSelectedTab] || callServices[0])
+
+    const [selectedService, setSelectedService] = useState('')
+    const ignisiteServices = ['build a custom website', 'website redesign & maintenance', 'SEO optimization service', 'web automation']
+
+    const tarikh = new Date()
+
+    const meeting_date = []
+    const days = ['sun', 'mon', 'tues', 'wed', 'thu', 'fri', 'sat']
+    const month = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december']
+
+    const timeSlots = ['4:30 to 5:00 PM', '5:30 to 6:00 PM']
+
+
+    const [serverResponse, setServerResponse] = useState("")
+
+    for (let i = 0; i < days.length; i++) {
+        const dayIndex = (tarikh.getDay() + i) % 7
+        const meetingDateData = {
+            day: days[dayIndex],
+            dates: tarikh.getDate() + i
         }
-        
-        await axios.post('https://dbda-2405-201-a805-e01c-b72b-b381-4adc-b75b.ngrok-free.app/call/appointment',sendData)
-        .then((res)=>console.log(res.data))
-        .catch((err)=>console.log(err))
-        
+        meeting_date.push(meetingDateData)
     }
+
+
+
+
+    async function handclick() {
+        if (selectedCallService === callServices[0]) {
+            try {
+                const consultationData = {
+                    name: name,
+                    email: email,
+                    time: time,
+                    date: date,
+                    phone: phone,
+                }
+                await axios.post('/call/appointment', consultationData)
+                    .then((res) => setServerResponse(res.data.message))
+                    .catch((err) => setServerResponse(err.response.data.message))
+            } catch (error) {
+                console.log(error);
+            }
+        } else {
+            try {
+                const serviceRequestData = {
+                    client_name: name,
+                    email: email,
+                    requestedService: selectedService,
+                    phone: phone
+                }
+
+                await axios.post('/service/request', serviceRequestData)
+                    .then((res) => setServerResponse(res.data.message)).catch((err) => setServerResponse(err.response.data.message))
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+    }
+
 
     return (
         <>
-            <h1 className="flex flex-col items-center h-screen justify-center">
-                {/* <div>
-                {bookingList}
-            </div> */}
-
-            {/* name time date phone */}
-            <div>
-                <div>
-                    <input onChange={(e)=>setName(e.target.value)} placeholder="name" type="text" className="bg-gray-200"/>
-                    <input onChange={(e)=>setEmail(e.target.value)} placeholder="email" type="email" className="bg-gray-200"/>
-
-                    <input onChange={(e)=>setTime(e.target.value)} placeholder="time" type="time" className="bg-gray-200"/>
-
-                    <input onChange={(e)=>setDate(e.target.value)} placeholder="date" type="date" className="bg-gray-200"/>
-
-                    <input onChange={(e)=>setPhone(e.target.value)} placeholder="phone" type="number" className="bg-gray-200"/>
-                </div>
+            <div hidden={serverResponse ? false : true} className="bg-blue-500 w-full">
+                <h1 className="font-helvetica text-white flex flex-col items-center">
+                    {
+                        serverResponse
+                    }
+                </h1>
             </div>
+            <div className="flex flex-row gap-10 bg-black p-6 items-center h-screen justify-center">
+                <div className="w-[50%] bg-gray-100 h-full rounded-xl p-10 flex flex-row justify-center items-center">
+                    {/* <img className="w-[100%] rounded-lg" src="/business.svg" alt="" /> */}
 
-                <button onClick={handclick} className="text-white bg-black p-4 cursor-pointer font-inter">
-                    click me to submit form
-                </button>
-            </h1>
+                    <h1 className="text-5xl font-inter font-semibold capitalize text-blue-700">
+                        It's already {tarikh.getDate()} of {month[tarikh.getMonth()]}, when are you taking action?
+                    </h1>
+                </div>
+                <div className="flex flex-col justify-start h-full gap-5 w-[50%] p-10">
+                    <div className="text-start flex flex-col gap-5">
+                        <h1 hidden={selectedCallService !== callServices[0]} className="text-white font-helvetica text-5xl capitalize font-semibold">
+                            book a free session with the founders
+                        </h1>
+
+                        <h1 hidden={selectedCallService !== callServices[1]} className="text-white font-helvetica text-5xl capitalize font-semibold">
+                            select an igniSite service to launch your success
+                        </h1>
+
+                        <div className="text-white flex flex-row gap-5 w-[90%]">
+                            {
+                                callServices.map((item) => {
+                                    const isSelected = selectedCallService === item
+                                    return (
+                                        <label key={item} className={`${isSelected ? "bg-blue-900/50 border-2 border-blue-700" : "border-2 border-gray-100/50"} p-6 w-full rounded-xl text-center`}>
+                                            <input checked={isSelected} onChange={(e) => setselectedCallService(e.target.value)} className={`sr-only`} name="day" type="radio" value={item} />
+                                            <p className="font-inter capitalize text-xl">
+                                                {item}
+                                            </p>
+                                        </label>
+                                    )
+                                })
+                            }
+                        </div>
+
+                    </div>
+
+
+
+
+
+                    <div hidden={selectedCallService !== callServices[0]} className="flex flex-col gap-7 font-inter max-w-[90%]">
+                        <input onChange={(e) => setName(e.target.value)} placeholder="name" type="text" className="bg-gray-950/50 px-2 outline-none border-2 border-gray-500/50 rounded-lg py-3 text-white capitalize" />
+                        <input onChange={(e) => setEmail(e.target.value)} placeholder="Email" type="email" className="bg-gray-950/50 px-2 outline-none border-2 border-gray-500/50 rounded-lg py-3 text-white" />
+
+
+                        <div className="text-white gap-3 flex flex-col">
+                            <h1 className="font-inter capitalize font-semibold">
+                                Pick a date this week
+                            </h1>
+                            <div className="flex flex-row gap-4 w-full">
+
+                                {
+                                    meeting_date.map((items) => {
+
+                                        const value = items.dates + " " + items.day
+                                        const isSelected = date === value
+
+                                        return (
+
+                                            <label key={items.dates} className={`${isSelected ? "bg-blue-900/50 border-2 border-blue-700" : "border-2 border-gray-100/25"} px-3 py-4 w-full rounded-xl text-center`}>
+                                                <input checked={isSelected} onChange={(e) => setDate(e.target.value)} className={`sr-only`} name="day" type="radio" value={value} />
+                                                <p className="font-inter capitalize">
+                                                    {items.day}
+                                                </p>
+
+                                                <p>
+                                                    {items.dates}
+                                                </p>
+                                            </label>
+
+                                        )
+                                    })
+                                }
+                            </div>
+                        </div>
+                        <div className="flex flex-col gap-2">
+                            <label className="text-white rounded-lg font-semibold font-inter flex flex-row items-center gap-2">Pick a time slot ( IST )</label>
+                            <div className="flex flex-row gap-4">
+                                {
+                                    timeSlots.map((item) => {
+                                        const isSelected = time === item
+                                        return (
+                                            <label className={`text-white ${isSelected ? "bg-blue-900/50 border-2 border-blue-700" : "border-2 border-gray-100/25"} rounded-lg px-4 py-2 font-inter flex flex-row items-center gap-2`}>
+                                                <input value={item} onChange={(e) => setTime(e.target.value)} name="time" placeholder="time" type="radio" className="sr-only" />
+                                                {item}
+                                            </label>
+                                        )
+                                    })
+                                }
+
+                            </div>
+                        </div>
+                        <input onChange={(e) => setPhone(e.target.value)} placeholder="phone" type="tel" className="bg-gray-950/50 px-2 outline-none border-2 border-gray-500/50 rounded-lg py-3 text-white capitalize" required />
+                        <div className="flex flex-col pt-4">
+                            <button onClick={handclick} className="text-black font-inter bg-white p-4 cursor-pointer text-xl font-semibold capitalize">
+                                Book the slot
+                            </button>
+                        </div>
+                    </div>
+
+
+                    <div hidden={selectedCallService !== callServices[1]} className="flex flex-col gap-7 font-inter max-w-[90%]">
+                        <input onChange={(e) => setName(e.target.value)} placeholder="name" type="text" className="bg-gray-950/50 px-2 outline-none border-2 border-gray-500/50 rounded-lg py-3 text-white capitalize" />
+                        <input onChange={(e) => setEmail(e.target.value)} placeholder="Email" type="email" className="bg-gray-950/50 px-2 outline-none border-2 border-gray-500/50 rounded-lg py-3 text-white" />
+
+                        <div className="flex flex-col gap-2">
+                            <label className="text-white rounded-lg font-semibold font-inter flex flex-row items-center gap-2">What are you looking for?</label>
+                            <div className="flex flex-row flex-wrap gap-2">
+                                {
+                                    ignisiteServices.map((item) => {
+                                        const isSelected = selectedService === item
+                                        return (
+                                            <label className={`text-white ${isSelected ? "bg-blue-900/50 border-2 border-blue-700" : "border-2 border-gray-100/25"} rounded-lg px-4 py-2 font-inter flex flex-row items-center gap-2`}>
+                                                <input value={item} onChange={(e) => setSelectedService(e.target.value)} name="time" placeholder="time" type="radio" className="sr-only" />
+                                                {item}
+                                            </label>
+                                        )
+                                    })
+                                }
+
+                            </div>
+                        </div>
+                        <input onChange={(e) => setPhone(e.target.value)} placeholder="phone" type="number" className="bg-gray-950/50 px-2 outline-none border-2 border-gray-500/50 rounded-lg py-3 text-white capitalize" required />
+                        <div className="flex flex-col pt-4">
+                            <button onClick={handclick} className="text-black font-inter bg-white p-4 cursor-pointer text-xl font-semibold capitalize">
+                                Send Request
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </>
     )
 }

@@ -13,7 +13,8 @@ export default defineConfig({
     proxy:{
       // this only works in the local machine
       '/call':'http://localhost:8080',
-      '/admin':'http://localhost:8080'
+      '/admin':'http://localhost:8080',
+      '/service' :'http://localhost:8080'
     }
   }
 })

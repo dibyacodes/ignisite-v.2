@@ -5,7 +5,6 @@ import App from './App.tsx'
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
 import Home from './pages/Home.tsx'
 import Booking from './pages/Booking.tsx'
-import Admin from './pages/Admin.tsx'
 import AdminLogIn from './pages/AdminLogIn.tsx'
 import AdminDash from './pages/AdminDash.tsx'
 
@@ -14,8 +13,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App />}>
       <Route path='/' element={<Home/>} />
-      <Route path='/appointment' element={<Booking/>}/>
-      <Route path='/access' element={<Admin/>}/>
+      <Route path='/appointment/:tab' element={<Booking/>}/>
       <Route path='/login' element={<AdminLogIn/>}/>
       <Route path='/dashboard' element={<AdminDash/>}/>
     </Route>
