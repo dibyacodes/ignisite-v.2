@@ -14,6 +14,7 @@ const router = createBrowserRouter(
     <Route path='/' element={<App />}>
       <Route path='/' element={<Home/>} />
       <Route path='/appointment/:tab' element={<Booking/>}/>
+      <Route path='/appointment' element={<Booking/>}/>
       <Route path='/login' element={<AdminLogIn/>}/>
       <Route path='/dashboard' element={<AdminDash/>}/>
     </Route>
