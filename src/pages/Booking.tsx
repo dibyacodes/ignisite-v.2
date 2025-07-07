@@ -2,7 +2,10 @@ import axios from "axios";
 import { useState } from "react";
 import { useParams } from "react-router";
 
-
+interface backendResponses {
+    success ?: boolean,
+    message ?: string,
+}
 
 function Booking() {
 
@@ -31,7 +34,7 @@ function Booking() {
     const timeSlots = ['4:30 to 5:00 PM', '5:30 to 6:00 PM']
 
 
-    const [serverResponse, setServerResponse] = useState("")
+    const [serverResponse, setServerResponse] = useState<backendResponses>({})
 
     for (let i = 0; i < days.length; i++) {
         const dayIndex = (tarikh.getDay() + i) % 7
@@ -56,8 +59,8 @@ function Booking() {
                     phone: phone,
                 }
                 await axios.post('/call/appointment', consultationData)
-                    .then((res) => setServerResponse(res.data.message))
-                    .catch((err) => setServerResponse(err.response.data.message))
+                    .then((res) => setServerResponse(res.data))
+                    .catch((err) => setServerResponse(err.response.data))
             } catch (error) {
                 console.log(error);
             }
@@ -71,7 +74,7 @@ function Booking() {
                 }
 
                 await axios.post('/service/request', serviceRequestData)
-                    .then((res) => setServerResponse(res.data.message)).catch((err) => setServerResponse(err.response.data.message))
+                    .then((res) => setServerResponse(res.data)).catch((err) => setServerResponse(err.response.data))
             } catch (error) {
                 console.log(error)
             }
@@ -82,39 +85,39 @@ function Booking() {
 
     return (
         <>
-            <div hidden={serverResponse ? false : true} className="bg-blue-500 w-full">
+            <div hidden={serverResponse ? false : true} className={`${serverResponse.success === true ? "bg-blue-500" : "bg-red-500"} w-full`}>
                 <h1 className="font-helvetica text-white flex flex-col items-center">
                     {
-                        serverResponse
+                        serverResponse.message
                     }
                 </h1>
             </div>
-            <div className="flex flex-row gap-10 bg-black p-6 items-center h-screen justify-center">
-                <div className="w-[50%] bg-gray-100 h-full rounded-xl p-10 flex flex-row justify-center items-center">
+            <div className="flex flex-col xl:flex-row gap-10 bg-black p-6 items-center h-full xl:h-screen lg:justify-center">
+                <div className="xl:w-[50%] md:w-[90%] bg-gray-100 h-full rounded-xl p-6 lg:p-10 flex flex-row justify-center items-center">
                     {/* <img className="w-[100%] rounded-lg" src="/business.svg" alt="" /> */}
 
-                    <h1 className="text-5xl font-inter font-semibold capitalize text-blue-700">
+                    <h1 className="xl:text-5xl font-helvetica text-3xl md:font-inter font-semibold capitalize text-blue-700">
                         It's already {tarikh.getDate()} of {month[tarikh.getMonth()]}, when are you taking action?
                     </h1>
                 </div>
-                <div className="flex flex-col justify-start h-full gap-5 w-[50%] p-10">
+                <div className="flex flex-col justify-start h-full gap-5 xl:w-[50%] md:w-[90%] xl:p-10">
                     <div className="text-start flex flex-col gap-5">
-                        <h1 hidden={selectedCallService !== callServices[0]} className="text-white font-helvetica text-5xl capitalize font-semibold">
+                        <h1 hidden={selectedCallService !== callServices[0]} className="text-white font-helvetica text-3xl xl:text-5xl capitalize font-semibold">
                             book a free session with the founders
                         </h1>
 
-                        <h1 hidden={selectedCallService !== callServices[1]} className="text-white font-helvetica text-5xl capitalize font-semibold">
+                        <h1 hidden={selectedCallService !== callServices[1]} className="text-white font-helvetica text-3xl xl:text-5xl capitalize font-semibold">
                             select an igniSite service to launch your success
                         </h1>
 
-                        <div className="text-white flex flex-row gap-5 w-[90%]">
+                        <div className="text-white flex flex-row gap-5 w-full md:w-[90%]">
                             {
                                 callServices.map((item) => {
                                     const isSelected = selectedCallService === item
                                     return (
-                                        <label key={item} className={`${isSelected ? "bg-blue-900/50 border-2 border-blue-700" : "border-2 border-gray-100/50"} p-6 w-full rounded-xl text-center`}>
+                                        <label key={item} className={`${isSelected ? "bg-blue-900/50 border-2 border-blue-700" : "border-2 border-gray-100/50"} p-3 md:p-6 w-[50%] rounded-xl text-center flex flex-row justify-center items-center`}>
                                             <input checked={isSelected} onChange={(e) => setselectedCallService(e.target.value)} className={`sr-only`} name="day" type="radio" value={item} />
-                                            <p className="font-inter capitalize text-xl">
+                                            <p className="font-inter capitalize text-md xl:text-xl">
                                                 {item}
                                             </p>
                                         </label>
@@ -129,7 +132,7 @@ function Booking() {
 
 
 
-                    <div hidden={selectedCallService !== callServices[0]} className="flex flex-col gap-7 font-inter max-w-[90%]">
+                    <div hidden={selectedCallService !== callServices[0]} className="flex flex-col gap-7 font-inter md:max-w-[90%]">
                         <input onChange={(e) => setName(e.target.value)} placeholder="name" type="text" className="bg-gray-950/50 px-2 outline-none border-2 border-gray-500/50 rounded-lg py-3 text-white capitalize" />
                         <input onChange={(e) => setEmail(e.target.value)} placeholder="Email" type="email" className="bg-gray-950/50 px-2 outline-none border-2 border-gray-500/50 rounded-lg py-3 text-white" />
 
@@ -138,7 +141,7 @@ function Booking() {
                             <h1 className="font-inter capitalize font-semibold">
                                 Pick a date this week
                             </h1>
-                            <div className="flex flex-row gap-4 w-full">
+                            <div className="flex flex-wrap md:flex-nowrap flex-row gap-4 w-full">
 
                                 {
                                     meeting_date.map((items) => {
@@ -148,7 +151,7 @@ function Booking() {
 
                                         return (
 
-                                            <label key={items.dates} className={`${isSelected ? "bg-blue-900/50 border-2 border-blue-700" : "border-2 border-gray-100/25"} px-3 py-4 w-full rounded-xl text-center`}>
+                                            <label key={items.dates} className={`${isSelected ? "bg-blue-900/50 border-2 border-blue-700" : "border-2 border-gray-100/25"} px-3 py-4 md:w-full rounded-xl text-center`}>
                                                 <input checked={isSelected} onChange={(e) => setDate(e.target.value)} className={`sr-only`} name="day" type="radio" value={value} />
                                                 <p className="font-inter capitalize">
                                                     {items.day}
@@ -183,14 +186,14 @@ function Booking() {
                         </div>
                         <input onChange={(e) => setPhone(e.target.value)} placeholder="phone" type="tel" className="bg-gray-950/50 px-2 outline-none border-2 border-gray-500/50 rounded-lg py-3 text-white capitalize" required />
                         <div className="flex flex-col pt-4">
-                            <button onClick={handclick} className="text-black font-inter bg-white p-4 cursor-pointer text-xl font-semibold capitalize">
+                            <button onClick={handclick} className="text-black rounded-xl font-inter bg-white p-4 cursor-pointer text-xl font-semibold capitalize">
                                 Book the slot
                             </button>
                         </div>
                     </div>
 
 
-                    <div hidden={selectedCallService !== callServices[1]} className="flex flex-col gap-7 font-inter max-w-[90%]">
+                    <div hidden={selectedCallService !== callServices[1]} className="flex flex-col gap-7 font-inter md:max-w-[90%]">
                         <input onChange={(e) => setName(e.target.value)} placeholder="name" type="text" className="bg-gray-950/50 px-2 outline-none border-2 border-gray-500/50 rounded-lg py-3 text-white capitalize" />
                         <input onChange={(e) => setEmail(e.target.value)} placeholder="Email" type="email" className="bg-gray-950/50 px-2 outline-none border-2 border-gray-500/50 rounded-lg py-3 text-white" />
 
@@ -213,7 +216,7 @@ function Booking() {
                         </div>
                         <input onChange={(e) => setPhone(e.target.value)} placeholder="phone" type="number" className="bg-gray-950/50 px-2 outline-none border-2 border-gray-500/50 rounded-lg py-3 text-white capitalize" required />
                         <div className="flex flex-col pt-4">
-                            <button onClick={handclick} className="text-black font-inter bg-white p-4 cursor-pointer text-xl font-semibold capitalize">
+                            <button onClick={handclick} className="text-black rounded-xl font-inter bg-white p-4 cursor-pointer text-xl font-semibold capitalize">
                                 Send Request
                             </button>
                         </div>
