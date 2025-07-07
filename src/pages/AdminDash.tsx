@@ -26,7 +26,6 @@ function AdminDash() {
 
         } catch (error) {
             console.log(`An Error Occured`)
-            // console.log(error.message);
         }
     }, [])
     

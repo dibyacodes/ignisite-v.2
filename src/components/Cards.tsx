@@ -1,3 +1,4 @@
+
 import Button from "./Button"
 
 interface cardProperties {
@@ -5,13 +6,15 @@ interface cardProperties {
     cardTitle: string,
     cardDesc?: string,
     cardImage?: string,
-    cardButtonText ?: string,
+    cardButtonText?: string,
 
-    customTitleStyle ?: string,
-    cardIcon ?: string
+    customTitleStyle?: string,
+    cardIcon?: string,
+
+    buttonRedirectLocation ?: string
 }
 
-function Cards({ cardTag, cardTitle, cardDesc, cardImage, cardButtonText, customTitleStyle, cardIcon}: cardProperties) {
+function Cards({ cardTag, cardTitle, cardDesc, cardImage, cardButtonText, customTitleStyle, cardIcon, buttonRedirectLocation = '/' }: cardProperties) {
     return (
         <>
             <div className="bg-gray-950/50 snap-center md:snap-none  backdrop-blur-2xl text-white flex flex-col justify-between min-w-[95%] max-w-[95%] md:min-w-[50ch] md:max-w-[50ch] rounded-2xl border-2 border-gray-200/25">
@@ -27,7 +30,7 @@ function Cards({ cardTag, cardTitle, cardDesc, cardImage, cardButtonText, custom
                         </span>
 
                         <div hidden={cardButtonText ? false : true}>
-                            <Button customs="px-0 text-sm md:text-md bg-gray-100 rounded-md px-2 py-1 text-gray-900 font-semibold" buttonText={cardButtonText || ""}/>
+                            <Button to={buttonRedirectLocation} customs="px-0 text-sm md:text-md bg-gray-100 rounded-md px-2 py-1 text-gray-900 font-semibold" buttonText={cardButtonText || ""} />
                         </div>
 
                     </div>
@@ -49,12 +52,6 @@ function Cards({ cardTag, cardTitle, cardDesc, cardImage, cardButtonText, custom
                     </div>
 
                 </div>
-
-                {/* <div className="flex flex-col justify-end p-4">
-                    <Button isDark buttonText="send request" />
-                </div> */}
-
-
             </div>
         </>
     )

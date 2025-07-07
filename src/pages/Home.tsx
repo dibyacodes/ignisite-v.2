@@ -12,11 +12,11 @@ function Home() {
                 <section className="flex pt-30 md:pt-[5%] justify-center">
                     <div className="flex flex-col gap-5 md:gap-5 px-4 md:px-0 md:w-[90%] text-center justify-center items-center">
 
-                        {/* <span className=" capitalize font-inter bg-gray-300/50 w-fit px-4 py-2 rounded-full font-medium text-gray-200 text-sm">website & softwares</span> */}
-                        <h1 className="font-inter capitalize text-4xl md:text-6xl font-semibold text-gray-200 md:max-w-[20ch]">
+                        {/* <span className=" capitalize font-helvetica bg-gray-300/50 w-fit px-4 py-2 rounded-full font-medium text-gray-200 text-sm">website & softwares</span> */}
+                        <h1 className="font-helvetica capitalize text-4xl md:text-6xl font-semibold text-gray-200 md:max-w-[20ch]">
                             designed for business, built for you</h1>
 
-                        <p className="hidden md:flex md:text-xl font-inter text-gray-300 font-medium md:w-[70ch] leading-tight">
+                        <p className="hidden md:flex md:text-xl font-helvetica text-gray-300 font-medium md:w-[70ch] leading-tight">
                             Discover industry standard website & software development services customize for your business that converts viewers to customers.
                         </p>
 
@@ -32,7 +32,7 @@ function Home() {
                 {/* services section with cards - horizontal scrolling for mobile devices and optional horizontal scroll for desktops */}
                 <section className=" py-20">
                     <div className="px-4 lg:ml-[10%]">
-                        <h1 className="md:text-3xl font-inter md:font-medium md:max-w-[30ch] capitalize text-2xl font-semibold text-gray-300 md:text-gray-200">
+                        <h1 className="md:text-3xl font-helvetica md:font-medium md:max-w-[30ch] capitalize text-2xl font-semibold text-gray-300 md:text-gray-200">
                             {/* building unapologetically modern websites & software */}
                             Discover our latest services. Review our recently added web solutions
                         </h1>
@@ -41,13 +41,13 @@ function Home() {
                     {/* horizontal scrolling cards */}
                     <div className="flex flex-row overflow-y-hidden gap-5 overflow-x-scroll hide-scrollbar py-5 px-4 lg:pl-[10%]">
 
-                        <Cards cardButtonText="send request" cardImage="/custom_website.svg" cardTag="branding + web design" cardDesc="Your website is your brand's digital home. Discover uniquely modern websites custom-made for your business" cardTitle="Custom Built websites" />
+                        <Cards buttonRedirectLocation="/appointment/1" cardButtonText="send request" cardImage="/custom_website.svg" cardTag="branding + web design" cardDesc="Your website is your brand's digital home. Discover uniquely modern websites custom-made for your business" cardTitle="Custom Built websites" />
 
-                        <Cards cardButtonText="send request" cardImage="/redesign.svg" cardTag="Web Design + Figma" cardDesc="We refine software functions to increase efficiency and align your systems for flawless operation." cardTitle="website redesign & maintenance" />
+                        <Cards buttonRedirectLocation="/appointment/1" cardButtonText="send request" cardImage="/redesign.svg" cardTag="Web Design + Figma" cardDesc="We refine software functions to increase efficiency and align your systems for flawless operation." cardTitle="website redesign & maintenance" />
 
-                        <Cards cardButtonText="send request" cardImage="/automation.svg" cardTag="Programming + AI" cardDesc="Integrated AI to automate mundane tasks & connecting your systems for reliable, seamless operations" cardTitle="Custom Softwares & Automations" />
+                        <Cards buttonRedirectLocation="/appointment/1" cardButtonText="send request" cardImage="/automation.svg" cardTag="Programming + AI" cardDesc="Integrated AI to automate mundane tasks & connecting your systems for reliable, seamless operations" cardTitle="Custom Softwares & Automations" />
 
-                        <Cards cardButtonText="send request" cardImage="/seo.svg" cardTag="SEO + Branding" cardDesc="Place your business in the top of the internet for your target audience. Being in sight is being in mind." cardTitle="SEO Optimization Services" />
+                        <Cards buttonRedirectLocation="/appointment/1" cardButtonText="send request" cardImage="/seo.svg" cardTag="SEO + Branding" cardDesc="Place your business in the top of the helveticanet for your target audience. Being in sight is being in mind." cardTitle="SEO Optimization Services" />
 
                     </div>
                 </section>
@@ -55,7 +55,7 @@ function Home() {
 
                 <section className=" py-20">
                     <div className="px-4 lg:ml-[10%]">
-                        <h1 className="md:text-3xl font-inter md:font-medium capitalize md:max-w-[50ch] text-2xl font-semibold text-gray-300 md:text-gray-200">
+                        <h1 className="md:text-3xl font-helvetica md:font-medium capitalize md:max-w-[50ch] text-2xl font-semibold text-gray-300 md:text-gray-200">
                             {/* building unapologetically modern websites & software */}
                             Delivering value first is our first priority.
                         </h1>
@@ -70,7 +70,7 @@ function Home() {
 
                         <Cards cardImage="/device-fill.svg" cardDesc="We build seamless, mobile-friendly designs that look and work perfectly on any device." cardTitle="responsive web & software designs" />
 
-                        <Cards cardImage="/sparkling-fill.svg" cardDesc="We create visually striking, interactive designs that captivate users and elevate your brand's digital presence." cardTitle="dynamic & aestheic designs" />
+                        <Cards cardImage="/sparkling-fill.svg" cardDesc="We create visually striking, helveticaactive designs that captivate users and elevate your brand's digital presence." cardTitle="dynamic & aestheic designs" />
 
                         <Cards cardImage="/shield-fill.svg" cardDesc="We employ advanced encryption protocols and secure connections to maintain the highest level of protection for your business." cardTitle="top-notch security & connections" />
 
@@ -79,7 +79,7 @@ function Home() {
 
                 <section className=" py-20">
                     <div className="px-4 lg:ml-[10%]">
-                        <h1 className="md:text-3xl font-inter md:font-medium capitalize md:max-w-[50ch] text-2xl font-semibold text-gray-300 md:text-gray-200">
+                        <h1 className="md:text-3xl font-helvetica md:font-medium capitalize md:max-w-[50ch] text-2xl font-semibold text-gray-300 md:text-gray-200">
                             {/* building unapologetically modern websites & software */}
                             the <b>IgniSite Advantage</b>. <br /> your trusted ally in web-development
                         </h1>
@@ -100,7 +100,7 @@ function Home() {
 
             <section className="bg-black ">
                 <div className="px-4 lg:ml-[10%]">
-                    <h1 className="text-white font-inter text-3xl md:text-5xl md:max-w-[50%] font-semibold">
+                    <h1 className="text-white font-helvetica text-3xl md:text-5xl md:max-w-[50%] font-semibold">
                         Get yourself a custom made website in just 5 steps.
                     </h1>
                 </div>
@@ -118,10 +118,10 @@ function Home() {
 
             <section className="px-3 bg-black py-20 flex flex-col">
                 <div className="flex flex-col items-center justify-center">
-                    <p className="text-blue-400 font-semibold font-inter capitalize text-xl">
+                    <p className="text-blue-400 font-semibold font-helvetica capitalize text-xl">
                         all your queries answered
                     </p>
-                    <h1 className="md:text-5xl text-white font-inter font-semibold capitalize md:max-w-[50%] text-center">
+                    <h1 className="md:text-5xl text-white font-helvetica font-semibold capitalize md:max-w-[50%] text-center">
                         Ready to achieve your financial goals with your business?
                     </h1>
                 </div>
