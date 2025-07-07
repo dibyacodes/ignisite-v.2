@@ -18,7 +18,7 @@ function AdminLogIn() {
         }
 
         try {
-            axios.post('/admin/signin',adminData,{withCredentials:true}).then((res)=> res.data.success ? setTimeout(() => {navigate('/dashboard')}, 2000) : console.log(`Login Failed`))
+            axios.post('https://d26a-2405-201-a805-e01c-b4dc-1409-fe07-eae3.ngrok-free.app/admin/signin',adminData,{withCredentials:true}).then((res)=> res.data.success ? setTimeout(() => {navigate('/dashboard')}, 2000) : console.log(`Login Failed`))
         } catch (error: unknown) {
             return setErrorMsg('An unexpected error occurred')
         }

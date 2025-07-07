@@ -1,15 +1,22 @@
-// import { useState } from "react"
+import { useState } from "react"
 import { NavLink } from "react-router"
+import Button from "./Button"
 
 function Header() {
-    // const [menuHide, setMenuHide] = useState(true)
+    const [menuHide, setMenuHide] = useState(true)
     return (
         <>
-            {/* <header className="z-1 flex flex-row justify-between">
+            <header hidden className="z-1 flex flex-row bg-black">
 
-                <span onClick={() => setMenuHide(!menuHide)} className="text-white cursor-pointer flex flex-row justify-center z-1 p-2 bg-black w-full font-helvetica text-3xl font-semibold">
-                    Ignisite
-                </span>
+                <div className="flex w-[50%] flex-row ">
+                    <span className="text-white cursor-pointer z-1 p-2 w-full font-helvetica text-3xl font-semibold">
+                        Ignisite
+                    </span>
+                    <span onClick={() => setMenuHide(!menuHide)}>
+                        <Button isDark buttonText="Menu"/>
+                    </span>
+
+                </div>
                 <div className="fixed">
                     <nav className={`${menuHide ? "-translate-x-full" : "translate-x-0"}  flex w-fit transition-transform duration-400 ease-in-out flex-col h-screen bg-black/60 p-10 justify-center`}>
                         <div>
@@ -35,8 +42,9 @@ function Header() {
                     </nav>
                 </div>
 
-            </header> */}
-            <header className="bg-black flex flex-row justify-around pt-1 md:py-5">
+            </header>
+
+            {/* <header className="bg-black flex flex-row justify-around pt-1 md:py-5">
                 <span>
                     <NavLink to={'/'}>
                         <h1 className="text-white text-2xl font-helvetica font-semibold">Ignisite</h1>
@@ -52,7 +60,7 @@ function Header() {
                         </NavLink>
                     </ul>
                 </nav>
-            </header>
+            </header> */}
         </>
     )
 }

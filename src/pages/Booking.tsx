@@ -58,7 +58,7 @@ function Booking() {
                     date: date,
                     phone: phone,
                 }
-                await axios.post('/call/appointment', consultationData)
+                await axios.post('https://d26a-2405-201-a805-e01c-b4dc-1409-fe07-eae3.ngrok-free.app/call/appointment', consultationData)
                     .then((res) => setServerResponse(res.data))
                     .catch((err) => setServerResponse(err.response.data))
             } catch (error) {
@@ -73,7 +73,7 @@ function Booking() {
                     phone: phone
                 }
 
-                await axios.post('/service/request', serviceRequestData)
+                await axios.post('https://d26a-2405-201-a805-e01c-b4dc-1409-fe07-eae3.ngrok-free.app/service/request', serviceRequestData)
                     .then((res) => setServerResponse(res.data)).catch((err) => setServerResponse(err.response.data))
             } catch (error) {
                 console.log(error)
