@@ -19,7 +19,7 @@ function AdminDash() {
 
     useEffect(() => {
         try {
-            axios.get('https://d26a-2405-201-a805-e01c-b4dc-1409-fe07-eae3.ngrok-free.app/admin/allbookings',{headers : {'ngrok-skip-browser-warning' : 'any-value'},withCredentials:true})
+            axios.get('/admin/allbookings',{headers : {'ngrok-skip-browser-warning' : 'any-value'},withCredentials:true})
             .then((res)=>{
                 setDatabaseData(res.data.message)
             })

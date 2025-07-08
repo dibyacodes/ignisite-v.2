@@ -6,19 +6,19 @@ function Header() {
     const [menuHide, setMenuHide] = useState(true)
     return (
         <>
-            <header hidden className="z-1 flex flex-row bg-black">
+            <header hidden className="z-1 flex flex-row absolute">
 
-                <div className="flex w-[50%] flex-row ">
-                    <span className="text-white cursor-pointer z-1 p-2 w-full font-helvetica text-3xl font-semibold">
+                <div className="flex flex-row ">
+                    <span className="text-gray-900 cursor-pointer z-40 p-2 w-full font-helvetica text-3xl font-semibold">
                         Ignisite
                     </span>
                     <span onClick={() => setMenuHide(!menuHide)}>
-                        <Button isDark buttonText="Menu"/>
+                        <Button buttonText="Menu"/>
                     </span>
 
                 </div>
-                <div className="fixed">
-                    <nav className={`${menuHide ? "-translate-x-full" : "translate-x-0"}  flex w-fit transition-transform duration-400 ease-in-out flex-col h-screen bg-black/60 p-10 justify-center`}>
+                <div className="fixed z-1">
+                    <nav className={`${menuHide ? "-translate-x-full" : "translate-x-0"}  flex w-fit transition-transform duration-400 ease-in-out flex-col h-screen bg-black p-10 justify-center`}>
                         <div>
                             <ul className="flex text-white flex-col w-fit gap-5 font-helvetica">
                                 <li>
