@@ -5,6 +5,67 @@
   src: url("/fonts/inter.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "helvetica";
+  src: url("/fonts/Helvetica.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Meiland";
+  src: url("/fonts/meiland.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "dream";
+  src: url("/fonts/do.otf") format("opentype");
+}
+
 @theme {
   --font-inter : "Inter", sans-serif;
+  --font-helvetica : "Helvetica",serif;
+  --font-meiland : "Meiland";
+  --font-dream : "dream"
 }
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+/* hiding scrollbare for entire page, verticle side scrollbar */
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+
+/* on scrool animations */
+
+/* @keyframes appear {
+  from {
+    opacity: 0;
+    scale: 0.5;
+  }
+  
+  to{
+    opacity : 1;
+    scale : 1;
+  }
+}
+
+.blockAni {
+  animation : appear linear;
+  animation-timeline : view();
+  animation-range: entry 0 cover 50%;
+} */
