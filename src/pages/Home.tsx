@@ -223,7 +223,7 @@ function Home() {
                     </h1>
                 </div>
                 <div className="flex flex-col md:flex-row items-center md:items-stretch justify-center bg-[#1a1a1a] pt-15 gap-5">
-                    <Cards cardImage="/consultation.svg" cardTag="free 30 min consultation" cardButtonText="book a call" cardTitle="Book a consultation to know what's best for you." />
+                    <Cards buttonRedirectLocation="/appointment" cardImage="/consultation.svg" cardTag="free 30 min consultation" cardButtonText="book a call" cardTitle="Book a consultation to know what's best for you." />
                     <Cards cardImage="/conference.svg" cardTag="reach us out instantly" cardButtonText="book a call" cardTitle="whatsapp numbers or phone call numbers to be added" />
                 </div>
             </section>
