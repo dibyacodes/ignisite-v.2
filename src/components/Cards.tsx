@@ -11,12 +11,17 @@ interface cardProperties {
     customTitleStyle?: string,
     cardIcon?: string,
 
-    buttonRedirectLocation ?: string
+    buttonRedirectLocation?: string
+
+    contactDetails?: {
+        title: string,
+        contactMean: string
+    }[]
 
     // paragraphChildren ?: HTMLParagraphElement
 }
 
-function Cards({ cardTag, cardTitle, cardDesc, cardImage, cardButtonText, customTitleStyle, cardIcon, buttonRedirectLocation = '/' }: cardProperties) {
+function Cards({ contactDetails, cardTag, cardTitle, cardDesc, cardImage, cardButtonText, customTitleStyle, cardIcon, buttonRedirectLocation = '/' }: cardProperties) {
     return (
         <>
             <div className="bg-[#3d3d3d] snap-center md:snap-none  backdrop-blur-2xl text-white flex flex-col justify-between min-w-[95%] max-w-[95%] md:min-w-[50ch] md:max-w-[50ch] rounded-2xl">
@@ -49,6 +54,23 @@ function Cards({ cardTag, cardTitle, cardDesc, cardImage, cardButtonText, custom
                             {/* {paragraphChildren ? paragraphChildren} */}
                         </p>
                     </div>
+
+
+                    {
+                        contactDetails?.map((items, key) => (
+                            <div hidden={contactDetails ? false : true} key={key}>
+                                <div className="text-sm md:text-md font-helvetica text-gray-300">
+                                    {items.title}
+                                </div>
+                                <div className="text-xl font-helvetica font-semibold">
+                                    <a href={`tel:${items.contactMean}`}>
+                                        {items.contactMean}
+                                    </a>
+                                </div>
+                            </div>
+                        ))
+                    }
+
 
                     <div className="flex flex-col items-center">
                         <img className="w-[90%]" src={cardImage} alt="" />

@@ -3,12 +3,25 @@ import Button from "../components/Button"
 import Cards from "../components/Cards"
 // import Pop from "../components/Pop"
 
+
 function Home() {
 
     const serviceRef = useRef(null);
     const featuresRef = useRef(null);
     const benefitsRef = useRef(null);
     const getAWebsiteStepRef = useRef(null)
+
+    const details = [
+        {
+            title : "Founder Dibyajyoti Kumar",
+            contactMean : '9435369509'
+        },
+
+        {
+            title : 'Co-founder Mayukh Sarma',
+            contactMean : '6003155960'
+        }
+    ]
 
     const scrollLeft = (ref: any) => {
         if (ref.current) {
@@ -224,7 +237,7 @@ function Home() {
                 </div>
                 <div className="flex flex-col md:flex-row items-center md:items-stretch justify-center bg-[#1a1a1a] pt-15 gap-5">
                     <Cards buttonRedirectLocation="/appointment" cardImage="/consultation.svg" cardTag="free 30 min consultation" cardButtonText="book a call" cardTitle="Book a consultation to know what's best for you." />
-                    <Cards cardImage="/conference.svg" cardTag="reach us out instantly" cardButtonText="book a call" cardTitle="whatsapp numbers or phone call numbers to be added" />
+                    <Cards contactDetails={details} cardImage="/conference.svg" cardTag="reach us out instantly" cardTitle="In confusion? Let's have a quick chat!" />
                 </div>
             </section>
 
