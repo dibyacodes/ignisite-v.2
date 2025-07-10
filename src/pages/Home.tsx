@@ -1,16 +1,26 @@
+import { useRef } from "react";
 import Button from "../components/Button"
 import Cards from "../components/Cards"
 // import Pop from "../components/Pop"
 
 function Home() {
 
-    // const scrollRef = useRef(null);
+    const serviceRef = useRef(null);
+    const featuresRef = useRef(null);
+    const benefitsRef = useRef(null);
+    const getAWebsiteStepRef = useRef(null)
 
-    // const scroll = (scrollOffset) => {
-    //     if (scrollRef.current) {
-    //         scrollRef.current.scrollBy({ left: scrollOffset, behavior: "smooth" });
-    //     }
-    // };
+    const scrollLeft = (ref: any) => {
+        if (ref.current) {
+            ref.current.scrollBy({ left: -300, behavior: "smooth" });
+        }
+    };
+
+    const scrollRight = (ref: any) => {
+        if (ref.current) {
+            ref.current.scrollBy({ left: 300, behavior: "smooth" });
+        }
+    };
 
 
     return (
@@ -54,15 +64,33 @@ function Home() {
                     </div>
 
                     {/* horizontal scrolling cards */}
-                    <div className="flex flex-row overflow-y-hidden gap-5 overflow-x-scroll hide-scrollbar py-5 px-4 lg:pl-[10%]">
+                    <div className="relative">
+                        <button
+                            className="absolute cursor-pointer hidden md:block right-2 top-1/2 -translate-y-1/2 z-10 bg-[#f7f6f5]/60 backdrop-blur-3xl p-4 rounded-full shadow-lg shadow-black"
+                            onClick={() => scrollRight(serviceRef)}
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1a1a1a"><path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" /></svg>
+                        </button>
 
-                        <Cards buttonRedirectLocation="/appointment/1" cardButtonText="send request" cardImage="/custom_website.svg" cardTag="branding + web design" cardDesc="Your website is your brand's digital home. Discover uniquely modern websites custom-made for your business" cardTitle="Custom Built websites" />
+                        <div ref={serviceRef} style={{ scrollBehavior: "smooth" }} className="flex flex-row overflow-y-hidden gap-5 overflow-x-scroll hide-scrollbar py-5 px-4 lg:pl-[10%]">
 
-                        <Cards buttonRedirectLocation="/appointment/1" cardButtonText="send request" cardImage="/redesign.svg" cardTag="Web Design + Figma" cardDesc="We refine software functions to increase efficiency and align your systems for flawless operation." cardTitle="website redesign & maintenance" />
+                            <Cards buttonRedirectLocation="/appointment/1" cardButtonText="send request" cardImage="/custom_website.svg" cardTag="branding + web design" cardDesc="Your website is your brand's digital home. Discover uniquely modern websites custom-made for your business" cardTitle="Custom Built websites" />
 
-                        <Cards buttonRedirectLocation="/appointment/1" cardButtonText="send request" cardImage="/automation.svg" cardTag="Programming + AI" cardDesc="Integrated AI to automate mundane tasks & connecting your systems for reliable, seamless operations" cardTitle="Custom Softwares & Automations" />
+                            <Cards buttonRedirectLocation="/appointment/1" cardButtonText="send request" cardImage="/redesign.svg" cardTag="Web Design + Figma" cardDesc="We refine software functions to increase efficiency and align your systems for flawless operation." cardTitle="website redesign & maintenance" />
 
-                        <Cards buttonRedirectLocation="/appointment/1" cardButtonText="send request" cardImage="/seo.svg" cardTag="SEO + Branding" cardDesc="Place your business in the top of the dreamnet for your target audience. Being in sight is being in mind." cardTitle="SEO Optimization Services" />
+                            <Cards buttonRedirectLocation="/appointment/1" cardButtonText="send request" cardImage="/automation.svg" cardTag="Programming + AI" cardDesc="Integrated AI to automate mundane tasks & connecting your systems for reliable, seamless operations" cardTitle="Custom Softwares & Automations" />
+
+                            <Cards buttonRedirectLocation="/appointment/1" cardButtonText="send request" cardImage="/seo.svg" cardTag="SEO + Branding" cardDesc="Place your business in the top of the dreamnet for your target audience. Being in sight is being in mind." cardTitle="SEO Optimization Services" />
+
+                        </div>
+
+                        <button
+                            className="absolute cursor-pointer hidden md:block left-2 top-1/2 -translate-y-1/2 z-10 bg-[#f7f6f5]/60 backdrop-blur-3xl p-4 rounded-full shadow-lg shadow-black"
+                            onClick={() => scrollLeft(serviceRef)}
+
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1a1a1a"><path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" /></svg>
+                        </button>
 
                     </div>
                 </section>
@@ -77,19 +105,38 @@ function Home() {
                     </div>
 
                     {/* horizontal scrolling cards */}
-                    <div className="flex flex-row overflow-y-hidden gap-5 overflow-x-scroll hide-scrollbar py-5 px-4 lg:pl-[10%] snap-x md:snap-none snap-mandatory">
+                    <div className="relative">
 
-                        <Cards cardImage="/owner-fill.svg" cardDesc="We design admin pages tailored to your workflow, giving you control and clarity with a user-friendly experience." cardTitle="personalized admin pages" />
+                        <button
+                            className="absolute cursor-pointer hidden md:block right-2 top-1/2 -translate-y-1/2 z-10 bg-[#f7f6f5]/60 backdrop-blur-3xl p-4 rounded-full shadow-lg shadow-black"
+                            onClick={() => scrollRight(featuresRef)}
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1a1a1a"><path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" /></svg>
+                        </button>
 
-                        <Cards cardImage="/custom-size.svg" cardDesc="We craft distinctive brand identities that help your business stand out and connect with your audience." cardTitle="Custom Branding for your business" />
+                        <div ref={featuresRef} className="flex flex-row overflow-y-hidden gap-5 overflow-x-scroll hide-scrollbar py-5 px-4 lg:pl-[10%] snap-x md:snap-none snap-mandatory">
 
-                        <Cards cardImage="/shield-fill.svg" cardDesc="We employ advanced encryption protocols and secure connections to maintain the highest level of protection for your business." cardTitle="top-notch security & connections" />
+                            <Cards buttonRedirectLocation="/appointment/1" cardImage="/owner-fill.svg" cardDesc="We design admin pages tailored to your workflow, giving you control and clarity with a user-friendly experience." cardTitle="personalized admin pages" />
 
-                        <Cards cardImage="/sparkling-fill.svg" cardDesc="We create visually striking, dreamactive designs that captivate users and elevate your brand's digital presence." cardTitle="dynamic & aestheic designs" />
+                            <Cards cardImage="/custom-size.svg" cardDesc="We craft distinctive brand identities that help your business stand out and connect with your audience." cardTitle="Custom Branding for your business" />
 
-                        <Cards cardImage="/device-fill.svg" cardDesc="We build seamless, mobile-friendly designs that look and work perfectly on any device." cardTitle="responsive web & software designs" />
+                            <Cards cardImage="/shield-fill.svg" cardDesc="We employ advanced encryption protocols and secure connections to maintain the highest level of protection for your business." cardTitle="top-notch security & connections" />
+
+                            <Cards cardImage="/sparkling-fill.svg" cardDesc="We create visually striking, dreamactive designs that captivate users and elevate your brand's digital presence." cardTitle="dynamic & aestheic designs" />
+
+                            <Cards cardImage="/device-fill.svg" cardDesc="We build seamless, mobile-friendly designs that look and work perfectly on any device." cardTitle="responsive web & software designs" />
+
+                        </div>
+
+                        <button
+                            className="absolute cursor-pointer hidden md:block left-2 top-1/2 -translate-y-1/2 z-10 bg-[#f7f6f5]/60 backdbg-[#f7f6f5]/60 backdrop-blur-3xl p-4 rounded-full shadow-lg shadow-black"
+                            onClick={() => scrollLeft(featuresRef)}
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1a1a1a"><path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" /></svg>
+                        </button>
 
                     </div>
+
                 </section>
 
                 <section className=" py-20">
@@ -101,13 +148,30 @@ function Home() {
                     </div>
 
                     {/* horizontal scrolling cards */}
-                    <div className="flex flex-row overflow-y-hidden gap-5 overflow-x-scroll hide-scrollbar py-5 px-4 lg:pl-[10%] snap-x md:snap-none snap-mandatory">
 
-                        <Cards cardIcon="/bank-card-fill.svg" customTitleStyle="text-blue-500" cardTitle="choice based subscriptions. choose your own benefits" />
-                        <Cards cardIcon="/lock-password-fill.svg" customTitleStyle="text-green-500" cardTitle="monthly security checks & upgrades to keep your business safe." />
-                        <Cards cardIcon="/terminal-box-fill.svg" customTitleStyle="text-[#f7f6f5]-300" cardTitle="Implementing latest tech stacks to ensure fast & reliable websites." />
-                        <Cards cardIcon="/globe-fill.svg" customTitleStyle="text-blue-500" cardTitle="SEO optimized content to help you land in your clients search history." />
+                    <div className="relative">
+                        <button
+                            className="absolute cursor-pointer hidden md:block right-2 top-1/2 -translate-y-1/2 z-10 bg-[#f7f6f5]/60 backdrop-blur-3xl p-4 rounded-full shadow-lg shadow-black"
+                            onClick={() => scrollRight(benefitsRef)}
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1a1a1a"><path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" /></svg>
+                        </button>
 
+                        <div ref={benefitsRef} className="flex flex-row overflow-y-hidden gap-5 overflow-x-scroll hide-scrollbar py-5 px-4 lg:pl-[10%] snap-x md:snap-none snap-mandatory">
+
+                            <Cards cardIcon="/bank-card-fill.svg" customTitleStyle="text-blue-500" cardTitle="choice based subscriptions. choose your own benefits" />
+                            <Cards cardIcon="/lock-password-fill.svg" customTitleStyle="text-green-500" cardTitle="monthly security checks & upgrades to keep your business safe." />
+                            <Cards cardIcon="/terminal-box-fill.svg" customTitleStyle="text-[#f7f6f5]-300" cardTitle="Implementing latest tech stacks to ensure fast & reliable websites." />
+                            <Cards cardIcon="/globe-fill.svg" customTitleStyle="text-blue-500" cardTitle="SEO optimized content to help you land in your clients search history." />
+
+                        </div>
+
+                        <button
+                            className="absolute cursor-pointer hidden md:block left-2 top-1/2 -translate-y-1/2 z-10 bg-[#f7f6f5]/60 backdrop-blur-3xl p-4 rounded-full shadow-lg shadow-black"
+                            onClick={() => scrollLeft(benefitsRef)}
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1a1a1a"><path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" /></svg>
+                        </button>
                     </div>
                 </section>
             </div>
@@ -119,14 +183,32 @@ function Home() {
                         experience a website built <p className="text-[#bdbdbd]">exclusively for your brand.</p>
                     </h1>
                 </div>
-                <div className="flex flex-row overflow-y-hidden gap-5 overflow-x-scroll hide-scrollbar py-5 px-4 lg:pl-[10%] snap-x md:snap-none snap-mandatory">
 
-                    <Cards cardTag="step 1" cardImage="/send-request.svg" cardTitle="send a request for web or software development." cardDesc="Click the button above to send a request now." />
-                    <Cards cardTag="step 2" cardImage="/email-notification.svg" cardTitle="Receive an e-mail confirming your order." cardDesc="You should receive an email or a whatsapp message within 24 hours of the making a service request." />
-                    <Cards cardTag="step 3" cardImage="/conference.svg" cardTitle="Schedule a call & get a pricing of your choice" cardDesc="A custom website, comes with a custom price. We focus on providing quality products than cheap products." />
-                    <Cards cardTag="step 4" cardImage="/wait.svg" cardDesc="Wait for the time period of maximum 4 days. Need it sooner? We can discuss that over a call." cardTitle="Wait for the allocated time period." />
-                    <Cards cardTag="step 5" cardImage="/done.svg" cardDesc="Wait for the time period of maximum 4 days. Need it sooner? We can discuss that over a call." cardTitle="Receive your website & take your business online" />
+                <div className="relative">
 
+                    <button
+                        className="absolute cursor-pointer hidden md:block right-2 top-1/2 -translate-y-1/2 z-10 bg-[#f7f6f5]/60 backdrop-blur-3xl p-4 rounded-full shadow-lg shadow-black"
+                        onClick={() => scrollRight(getAWebsiteStepRef)}
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1a1a1a"><path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" /></svg>
+                    </button>
+
+                    <div ref={getAWebsiteStepRef} className="flex flex-row overflow-y-hidden gap-5 overflow-x-scroll hide-scrollbar py-5 px-4 lg:pl-[10%] snap-x md:snap-none snap-mandatory">
+
+                        <Cards cardTag="step 1" cardImage="/send-request.svg" cardTitle="send a request for web or software development." cardDesc="Click the button above to send a request now." />
+                        <Cards cardTag="step 2" cardImage="/email-notification.svg" cardTitle="Receive an e-mail confirming your order." cardDesc="You should receive an email or a whatsapp message within 24 hours of the making a service request." />
+                        <Cards cardTag="step 3" cardImage="/conference.svg" cardTitle="Schedule a call & get a pricing of your choice" cardDesc="A custom website, comes with a custom price. We focus on providing quality products than cheap products." />
+                        <Cards cardTag="step 4" cardImage="/wait.svg" cardDesc="Wait for the time period of maximum 4 days. Need it sooner? We can discuss that over a call." cardTitle="Wait for the allocated time period." />
+                        <Cards cardTag="step 5" cardImage="/done.svg" cardDesc="Wait for the time period of maximum 4 days. Need it sooner? We can discuss that over a call." cardTitle="Receive your website & take your business online" />
+
+                    </div>
+
+                    <button
+                        className="absolute cursor-pointer hidden md:block left-2 top-1/2 -translate-y-1/2 z-10 bg-[#f7f6f5]/60 backdrop-blur-3xl p-4 rounded-full shadow-lg shadow-black"
+                        onClick={() => scrollLeft(getAWebsiteStepRef)}
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1a1a1a"><path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" /></svg>
+                    </button>
                 </div>
             </section>
 
