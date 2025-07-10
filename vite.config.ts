@@ -6,13 +6,9 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   server : {
-    allowedHosts : [
-      "dbb0a2a1cf57.ngrok-free.app"
-    ],
-
     proxy:{
       // this only works in the local machine
-      '/call':'http://localhost:8080',
+      '/schedule':'http://localhost:8080',
       '/admin':'http://localhost:8080',
       '/service' :'http://localhost:8080'
     }

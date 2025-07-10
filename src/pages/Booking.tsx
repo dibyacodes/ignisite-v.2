@@ -3,11 +3,6 @@ import { useState } from "react";
 import { useParams } from "react-router";
 import { toast, ToastContainer } from "react-toastify";
 
-// interface backendResponses {
-//     success?: boolean,
-//     message?: string,
-// }
-
 function Booking() {
 
 
@@ -30,14 +25,12 @@ function Booking() {
 
     const meeting_date = []
     const days = ['sun', 'mon', 'tues', 'wed', 'thu', 'fri', 'sat']
-    // const month = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december']
 
     const [buttonLoading, setButtonLoading] = useState(false)
 
     const timeSlots = ['4:30 to 5:00 PM', '5:30 to 6:00 PM']
 
 
-    // const [serverResponse, setServerResponse] = useState<backendResponses>({})
 
     for (let i = 0; i < days.length; i++) {
         const dayIndex = (tarikh.getDay() + i) % 7
@@ -47,8 +40,6 @@ function Booking() {
         }
         meeting_date.push(meetingDateData)
     }
-
-
 
 
     async function handclick() {
@@ -66,7 +57,7 @@ function Booking() {
                     date: date,
                     phone: phone,
                 }
-                await axios.post('/call/appointment', consultationData)
+                await axios.post('https://ignisite-backend.onrender.com/schedule/appointment', consultationData)
                     .then((res) => toast.success(res.data.message || "Request Sent Successfully"))
                     .catch((err) => toast.error(err.response.data.message || "Something went wrong, Please try again."))
             } catch (error) {
@@ -81,25 +72,17 @@ function Booking() {
                     phone: phone
                 }
 
-                await axios.post('/service/request', serviceRequestData)
+                await axios.post('https://ignisite-backend.onrender.com/service/request', serviceRequestData)
                     .then((res) => toast.success(res.data.message || "Request Sent Successfully")).catch((err) => toast.error(err.response.data.message || "Something went wrong, Please try again."))
             } catch (error) {
                 console.log(error)
             }
         }
-
     }
 
 
     return (
         <>
-            {/* <div hidden={serverResponse ? false : true} className={`${serverResponse.success === true ? "bg-blue-500" : "bg-red-500"} w-full`}>
-                <h1 className="font-helvetica text-white flex flex-col items-center">
-                    {
-                        serverResponse.message
-                    }
-                </h1>
-            </div> */}
             <div className="flex flex-col xl:flex-row gap-10 bg-[#1a1a1a]  p-6 items-center min-h-screen md:min-h-screen xl:min-h-screen lg:justify-center">
 
                 <div className="flex flex-col justify-start h-full gap-5 xl:w-[50%] md:w-[90%] xl:p-10">
@@ -127,13 +110,10 @@ function Booking() {
                                 })
                             }
                         </div>
-
                     </div>
 
 
-
-
-
+                    {/* booking a consultation call */}
                     <div hidden={selectedCallService !== callServices[0]} className="flex flex-col gap-7 font-inter md:max-w-[90%]">
                         <input onChange={(e) => setName(e.target.value)} placeholder="name" type="text" className="bg-gray-950/50 px-2 outline-none border-2 border-gray-500/50 rounded-lg py-3 text-white capitalize" />
                         <input onChange={(e) => setEmail(e.target.value)} placeholder="Email" type="email" className="bg-gray-950/50 px-2 outline-none border-2 border-gray-500/50 rounded-lg py-3 text-white" />
@@ -195,6 +175,7 @@ function Booking() {
                         </div>
                     </div>
 
+                    {/* sending a service request */}
 
                     <div hidden={selectedCallService !== callServices[1]} className="flex flex-col gap-7 font-inter md:max-w-[90%]">
                         <input onChange={(e) => setName(e.target.value)} placeholder="name" type="text" className="bg-gray-950/50 px-2 outline-none border-2 border-gray-500/50 rounded-lg py-3 text-white capitalize" />
@@ -230,7 +211,7 @@ function Booking() {
             </div>
 
             <div>
-                <ToastContainer position="top-center"/>
+                <ToastContainer position="top-center" />
             </div>
         </>
     )
