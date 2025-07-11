@@ -58,7 +58,7 @@ function Booking() {
                     phone: phone,
                 }
                 await axios.post(`https://ignisite-backend.onrender.com/schedule/appointment`, consultationData)
-                    .then((res) => toast.success(res.data.message || "Request Sent Successfully") && navigate('/') && setButtonLoading(false))
+                    .then((res) => toast.success(res.data.message || "Request Sent Successfully") && setButtonLoading(false)).then(()=>navigate('/'))
                     .catch((err) => toast.error(err.response.data.message || "Something went wrong, Please try again."))
             } catch (error) {
                 console.log(error);
@@ -90,7 +90,7 @@ function Booking() {
                 <div className="flex flex-col justify-start h-full gap-5 xl:w-[50%] md:w-[90%] xl:p-10">
                     <div className="text-start flex flex-col gap-5">
                         <h1 hidden={selectedCallService !== callServices[0]} className="text-white font-meiland text-3xl xl:text-5xl capitalize font-semibold">
-                            book a free session with the founders
+                            book a free session with the founders test
                         </h1>
 
                         <h1 hidden={selectedCallService !== callServices[1]} className="text-white font-meiland text-3xl xl:text-5xl capitalize font-semibold">
