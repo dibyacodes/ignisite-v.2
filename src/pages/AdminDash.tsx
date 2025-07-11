@@ -13,15 +13,14 @@ interface bookingDetails {
 
 function AdminDash() {
 
-    const [databaseData, setDatabaseData] = useState([])
-
+    const [consultationBookings, setConsultationBookings] = useState([])
 
 
     useEffect(() => {
         try {
-            axios.get('https://ignisite-backend.onrender.com/admin/allbookings',{headers : {'ngrok-skip-browser-warning' : 'any-value'},withCredentials:true})
+            axios.get(`https://ignisite-backend.onrender.com/admin/allbookings`,{headers : {'ngrok-skip-browser-warning' : 'any-value'},withCredentials:true})
             .then((res)=>{
-                setDatabaseData(res.data.message)
+                setConsultationBookings(res.data.message)
             })
 
         } catch (error) {
@@ -32,8 +31,8 @@ function AdminDash() {
     return (
         <>
             <div className="flex flex-row gap-5 flex-wrap justify-center items-center pt-[5%]">
-                {Array.isArray(databaseData) &&
-                    databaseData.map((items: bookingDetails) => (
+                {Array.isArray(consultationBookings) &&
+                    consultationBookings.map((items: bookingDetails) => (
                         <div className="bg-black p-6 min-w-[50ch] rounded-lg">
                             <div className="flex flex-col gap-2">
                                 <h1 className="font-inter text-gray-100 capitalize text-2xl font-semibold">

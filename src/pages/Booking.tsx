@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { toast, ToastContainer } from "react-toastify";
 
 function Booking() {
@@ -27,10 +27,9 @@ function Booking() {
     const days = ['sun', 'mon', 'tues', 'wed', 'thu', 'fri', 'sat']
 
     const [buttonLoading, setButtonLoading] = useState(false)
+    const navigate = useNavigate()
 
     const timeSlots = ['4:30 to 5:00 PM', '5:30 to 6:00 PM']
-
-
 
     for (let i = 0; i < days.length; i++) {
         const dayIndex = (tarikh.getDay() + i) % 7
@@ -44,9 +43,10 @@ function Booking() {
 
     async function handclick() {
         setButtonLoading(true)
-        setTimeout(() => {
-            setButtonLoading(false)
-        }, 5000);
+        // setTimeout(() => {
+        //     setButtonLoading(false)
+        // }, 5000);
+
 
         if (selectedCallService === callServices[0]) {
             try {
@@ -57,8 +57,8 @@ function Booking() {
                     date: date,
                     phone: phone,
                 }
-                await axios.post('https://ignisite-backend.onrender.com/schedule/appointment', consultationData)
-                    .then((res) => toast.success(res.data.message || "Request Sent Successfully"))
+                await axios.post(`https://ignisite-backend.onrender.com/schedule/appointment`, consultationData)
+                    .then((res) => toast.success(res.data.message || "Request Sent Successfully") && navigate('/') && setButtonLoading(false))
                     .catch((err) => toast.error(err.response.data.message || "Something went wrong, Please try again."))
             } catch (error) {
                 console.log(error);
@@ -78,6 +78,8 @@ function Booking() {
                 console.log(error)
             }
         }
+
+
     }
 
 
@@ -169,7 +171,7 @@ function Booking() {
                         <input onChange={(e) => setPhone(e.target.value)} placeholder="phone" type="tel" className="bg-gray-950/50 px-2 outline-none border-2 border-gray-500/50 rounded-lg py-3 text-white capitalize" required />
                         <div className="flex flex-col pt-4">
                             <button onClick={handclick} className="text-black rounded-xl font-inter bg-white p-4 cursor-pointer text-xl font-semibold capitalize">
-                                <p hidden={buttonLoading}>Book the slot</p>
+                                <p hidden={buttonLoading}>Book a slot</p>
                                 <p hidden={!buttonLoading} className="animate-pulse">Processing, please wait...</p>
                             </button>
                         </div>
