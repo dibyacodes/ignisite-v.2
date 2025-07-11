@@ -24,11 +24,11 @@ function AdminDash() {
     const [consultationBookings, setConsultationBookings] = useState([])
     const [serviceRequest, setServiceRequest] = useState([])
     const [isSectionHidden, setIsSectionHidden] = useState(false)
-    const [isActive,setIsActive] = useState(true)
+    const [isActive, setIsActive] = useState(true)
 
-    function click(){
-        setIsSectionHidden((prev)=>!prev)
-        setIsActive((prev)=>!prev)
+    function click() {
+        setIsSectionHidden((prev) => !prev)
+        setIsActive((prev) => !prev)
     }
 
 
@@ -37,16 +37,23 @@ function AdminDash() {
             axios.get(`https://ignisite-backend.onrender.com/admin/allbookings`, { headers: { 'ngrok-skip-browser-warning': 'any-value' }, withCredentials: true })
                 .then((res) => {
                     setConsultationBookings(res.data.message)
-                }).catch((err)=>console.log(err.response.data.message))
-
-            axios.get('https://ignisite-backend.onrender.com/admin/service/requests')
-                .then((res) => setServiceRequest(res.data.message))
-                .catch((err)=>console.log(err.response.data.message))
+                }).catch((err) => console.log(err.response.data.message))
 
         } catch (error) {
             console.log(`An Error Occured`)
         }
     }, [])
+
+
+    useEffect(() => {
+        try {
+            axios.get('https://ignisite-backend.onrender.com/admin/service/requests')
+                .then((res) => setServiceRequest(res.data.message))
+                .catch((err) => console.log(err.response.data.message))
+        } catch (error) {
+            console.log(error);
+        }
+    },[])
 
     return (
         <>
