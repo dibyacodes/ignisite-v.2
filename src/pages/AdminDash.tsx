@@ -33,27 +33,38 @@ function AdminDash() {
 
 
     useEffect(() => {
-        try {
-            axios.get(`https://ignisite-backend.onrender.com/admin/allbookings`, { headers: { 'ngrok-skip-browser-warning': 'any-value' }, withCredentials: true })
-                .then((res) => {
-                    setConsultationBookings(res.data.message)
-                }).catch((err) => console.log(err.response.data.message))
 
-        } catch (error) {
-            console.log(`An Error Occured`)
+        async function getCallBookings() {
+            try {
+                await axios.get(`https://ignisite-backend.onrender.com/admin/allbookings`, { headers: { 'ngrok-skip-browser-warning': 'any-value' }, withCredentials: true })
+                    .then((res) => {
+                        setConsultationBookings(res.data.message)
+                    }).catch((err) => console.log(err.response.data.message))
+
+            } catch (error) {
+                console.log(`An Error Occured`)
+            }
         }
+
+        async function getServiceRequests() {
+            try {
+                await axios.get('https://ignisite-backend.onrender.com/admin/service/requests', { withCredentials: true })
+                    .then((res) => setServiceRequest(res.data.message))
+                    .catch((err) => console.log(err.response.data.message))
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        getCallBookings()
+        getServiceRequests()
+
     }, [])
 
 
     useEffect(() => {
-        try {
-            axios.get('https://ignisite-backend.onrender.com/admin/service/requests', {withCredentials : true})
-                .then((res) => setServiceRequest(res.data.message))
-                .catch((err) => console.log(err.response.data.message))
-        } catch (error) {
-            console.log(error);
-        }
-    },[])
+
+    }, [])
 
     return (
         <>
@@ -61,7 +72,7 @@ function AdminDash() {
 
                 <div className="flex flex-col gap-2 items-center">
                     <h1 className="text-gray-100 font-helvetica font-semibold capitalize text-5xl">
-                        welcome to IgniSite Den
+                        welcome to IgniSite
                     </h1>
                     <p className="text-gray-200 font-inter max-w-[50ch] capitalize text-center">
                         this is the admin panel. track all the bookings, and consultation calls from here.
