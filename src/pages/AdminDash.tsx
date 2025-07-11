@@ -47,7 +47,7 @@ function AdminDash() {
 
     useEffect(() => {
         try {
-            axios.get('https://ignisite-backend.onrender.com/admin/service/requests')
+            axios.get('https://ignisite-backend.onrender.com/admin/service/requests', {withCredentials : true})
                 .then((res) => setServiceRequest(res.data.message))
                 .catch((err) => console.log(err.response.data.message))
         } catch (error) {
