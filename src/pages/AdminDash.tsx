@@ -18,7 +18,7 @@ function AdminDash() {
 
     useEffect(() => {
         try {
-            axios.get('https://ignisite-backend.onrender.com/admin/allbookings',{headers : {'ngrok-skip-browser-warning' : 'any-value'},withCredentials:true})
+            axios.get(`https://ignisite-backend.onrender.com/admin/allbookings`,{headers : {'ngrok-skip-browser-warning' : 'any-value'},withCredentials:true})
             .then((res)=>{
                 setConsultationBookings(res.data.message)
             })
