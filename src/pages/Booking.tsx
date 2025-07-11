@@ -73,7 +73,7 @@ function Booking() {
                     phone: phone
                 }
 
-                await axios.post('https://ignisite-backend.onrender.com/service/request', serviceRequestData)
+                await axios.post('/service/request', serviceRequestData)
                     .then((res) => toast.success(res.data.message || "Request Sent Successfully") && setButtonLoading(false)).then(()=>navigate('/success',{ state: { fromFrom: true, username : name, service : selectedService } }))
                     .catch((err) => toast.error(err.response.data.message || "Something went wrong, Please try again.") && setButtonLoading(false))
             } catch (error) {
