@@ -7,6 +7,7 @@ function Booking() {
 
 
     const { tab } = useParams()
+    
 
     const defaultSelectedTab = tab ? parseInt(tab) : 0
 
@@ -58,7 +59,7 @@ function Booking() {
                     phone: phone,
                 }
                 await axios.post(`https://ignisite-backend.onrender.com/schedule/appointment`, consultationData)
-                    .then((res) => toast.success(res.data.message || "Request Sent Successfully") && setButtonLoading(false)).then(()=>navigate('/'))
+                    .then((res) => toast.success(res.data.message || "Request Sent Successfully") && setButtonLoading(false)).then(()=>navigate('/success',{ state: { fromFrom: true, username : name, call : date , callTime : time} }))
                     .catch((err) => toast.error(err.response.data.message || "Something went wrong, Please try again.")).then(()=>setButtonLoading(false))
             } catch (error) {
                 console.log(error);
@@ -72,8 +73,9 @@ function Booking() {
                     phone: phone
                 }
 
-                await axios.post('https://ignisite-backend.onrender.com/service/request', serviceRequestData)
-                    .then((res) => toast.success(res.data.message || "Request Sent Successfully")).catch((err) => toast.error(err.response.data.message || "Something went wrong, Please try again."))
+                await axios.post('/service/request', serviceRequestData)
+                    .then((res) => toast.success(res.data.message || "Request Sent Successfully") && setButtonLoading(false)).then(()=>navigate('/success',{ state: { fromFrom: true, username : name, service : selectedService } }))
+                    .catch((err) => toast.error(err.response.data.message || "Something went wrong, Please try again.") && setButtonLoading(false))
             } catch (error) {
                 console.log(error)
             }
