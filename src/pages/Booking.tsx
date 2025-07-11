@@ -59,7 +59,7 @@ function Booking() {
                 }
                 await axios.post(`https://ignisite-backend.onrender.com/schedule/appointment`, consultationData)
                     .then((res) => toast.success(res.data.message || "Request Sent Successfully") && setButtonLoading(false)).then(()=>navigate('/'))
-                    .catch((err) => toast.error(err.response.data.message || "Something went wrong, Please try again."))
+                    .catch((err) => toast.error(err.response.data.message || "Something went wrong, Please try again.")).then(()=>setButtonLoading(false))
             } catch (error) {
                 console.log(error);
             }
