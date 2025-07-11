@@ -37,10 +37,11 @@ function AdminDash() {
             axios.get(`https://ignisite-backend.onrender.com/admin/allbookings`, { headers: { 'ngrok-skip-browser-warning': 'any-value' }, withCredentials: true })
                 .then((res) => {
                     setConsultationBookings(res.data.message)
-                })
+                }).catch((err)=>console.log(err.response.data.message))
 
             axios.get('https://ignisite-backend.onrender.com/admin/service/requests')
                 .then((res) => setServiceRequest(res.data.message))
+                .catch((err)=>console.log(err.response.data.message))
 
         } catch (error) {
             console.log(`An Error Occured`)
