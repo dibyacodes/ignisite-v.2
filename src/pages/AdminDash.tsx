@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Navigate, useLocation } from "react-router";
 
 
 
@@ -20,6 +21,12 @@ interface serviceDetails {
 }
 
 function AdminDash() {
+
+    const location = useLocation()
+
+    if (!location.state?.fromFrom){
+        return <Navigate to={'/'}/>
+    }
 
     const [consultationBookings, setConsultationBookings] = useState([])
     const [serviceRequest, setServiceRequest] = useState([])
@@ -58,11 +65,6 @@ function AdminDash() {
 
         getCallBookings()
         getServiceRequests()
-
-    }, [])
-
-
-    useEffect(() => {
 
     }, [])
 
