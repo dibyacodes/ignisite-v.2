@@ -51,7 +51,7 @@ function Home() {
                         </div>
 
                         <p className="hidden  md:block md:text-xl font-helvetica text-[#f7f6f5] font-medium md:w-[70ch] leading-tight">
-                            We design <b>industry-standard websites and software solutions</b>, tailored specifically to your business, to effectively transform visitors into loyal customers.
+                            We design <b>industry-standard websites and software solutions</b>, tailored specifically for your business, to effectively transform visitors into loyal customers.
                         </p>
 
                         <div className="flex gap-3 flex-row md:flex-row justify-center items-center">
@@ -154,9 +154,9 @@ function Home() {
 
                 <section className=" py-20">
                     <div className="px-4 lg:ml-[10%]">
-                        <h1 className="md:text-2xl font-helvetica md:font-medium md:max-w-[50ch] text-2xl font-semibold text-[#f7f6f5] uppercase md:text-[#f7f6f5]">
+                        <h1 className="md:text-2xl font-helvetica md:max-w-[50ch] text-2xl font-semibold text-[#f7f6f5] uppercase md:text-[#f7f6f5]">
                             {/* building unapologetically modern websites & software */}
-                            the <b>IgniSite Advantage</b>. <p className="text-[#bdbdbd]">your trusted ally in web-development</p>
+                            the <b>igniSite Advantage</b>. <p className="text-[#bdbdbd]">your trusted ally in web-development</p>
                         </h1>
                     </div>
 
@@ -192,7 +192,7 @@ function Home() {
 
             <section className="bg-[#1a1a1a]">
                 <div className="px-4 lg:ml-[10%]">
-                    <h1 className="text-[#f7f6f5] font-helvetica text-3xl md:text-3xl md:max-w-[50%] font-semibold capitalize flex flex-col flex-wrap">
+                    <h1 className="text-[#f7f6f5] font-helvetica text-3xl md:text-3xl md:max-w-[50%] font-semibold uppercase flex flex-col flex-wrap">
                         experience a website built <p className="text-[#bdbdbd]">exclusively for your brand.</p>
                     </h1>
                 </div>
@@ -208,7 +208,7 @@ function Home() {
 
                     <div ref={getAWebsiteStepRef} className="flex flex-row overflow-y-hidden gap-5 overflow-x-scroll hide-scrollbar py-5 px-4 lg:pl-[10%] snap-x md:snap-none snap-mandatory">
 
-                        <Cards cardTag="step 1" cardImage="/send-request.svg" cardTitle="send a request for web or software development." cardDesc="Click the button above to send a request now." />
+                        <Cards cardTag="step 1" cardImage="/send-request.svg" cardTitle="send a request for web or software development." cardDesc="Send us a request for a custom website or any service that your want." />
                         <Cards cardTag="step 2" cardImage="/email-notification.svg" cardTitle="Receive an e-mail confirming your order." cardDesc="You should receive an email or a whatsapp message within 24 hours of the making a service request." />
                         <Cards cardTag="step 3" cardImage="/conference.svg" cardTitle="Schedule a call & get a pricing of your choice" cardDesc="A custom website, comes with a custom price. We focus on providing quality products than cheap products." />
                         <Cards cardTag="step 4" cardImage="/wait.svg" cardDesc="Wait for the time period of maximum 4 days. Need it sooner? We can discuss that over a call." cardTitle="Wait for the allocated time period." />
