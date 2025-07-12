@@ -15,7 +15,8 @@ interface cardProperties {
 
     contactDetails?: {
         title: string,
-        contactMean: string
+        contactMean: string,
+        iconOrImage?: string
     }[]
 
     // paragraphChildren ?: HTMLParagraphElement
@@ -58,14 +59,19 @@ function Cards({ contactDetails, cardTag, cardTitle, cardDesc, cardImage, cardBu
 
                     {
                         contactDetails?.map((items, key) => (
-                            <div hidden={contactDetails ? false : true} key={key}>
-                                <div className="text-sm md:text-md font-helvetica text-gray-300">
-                                    {items.title}
+                            <div hidden={contactDetails ? false : true} key={key} className="flex flex-row gap-3">
+                                <div className="max-w-[10%]">
+                                    <img className="bg-red-300 rounded-full" src={items.iconOrImage ? items.iconOrImage : '/default_pfp.webp'} alt="" />
                                 </div>
-                                <div className="text-xl font-helvetica font-semibold">
-                                    <a href={`tel:${items.contactMean}`}>
-                                        {items.contactMean}
-                                    </a>
+                                <div>
+                                    <div className="text-sm md:text-md font-helvetica font-semibold text-gray-100">
+                                        {items.title}
+                                    </div>
+                                    <div className="text-lg underline text-blue-300 font-helvetica font-semibold">
+                                        <a href={`tel:${items.contactMean}`}>
+                                            {items.contactMean}&#8599;
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         ))
