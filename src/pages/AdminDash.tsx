@@ -115,7 +115,7 @@ function AdminDash() {
 
                 {/* bookings */}
                 <div hidden={isSectionHidden} className="flex w-[80%] flex-row items-center gap-5 justify-center pt-[2%]">
-                    <div className="flex flex-row gap-5">
+                    <div className="flex flex-row flex-wrap gap-5">
                         {Array.isArray(consultationBookings) &&
                             consultationBookings.map((items: bookingDetails) => (
                                 <div className="bg-zinc-800 p-6 min-w-[40ch] rounded-lg">
@@ -166,7 +166,7 @@ function AdminDash() {
 
                 {/* service request */}
                 <div hidden={!isSectionHidden} className="flex w-[80%] flex-row items-center gap-5 justify-center pt-[2%]">
-                    <div className="flex flex-row gap-5">
+                    <div className="flex flex-row flex-wrap gap-5">
                         {Array.isArray(serviceRequest) &&
                             serviceRequest.map((items: serviceDetails) => (
                                 <div className="bg-zinc-800 p-6 min-w-[40ch] rounded-lg">
