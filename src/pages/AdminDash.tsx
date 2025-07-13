@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Navigate, useLocation } from "react-router";
+import { toast, ToastContainer } from "react-toastify";
 
 
 
 interface bookingDetails {
+    id: number,
     client_name: string,
     email: string,
     phone: number,
@@ -14,6 +16,7 @@ interface bookingDetails {
 
 
 interface serviceDetails {
+    id : number,
     client_name: string,
     email: string,
     requestedService: string,
@@ -24,8 +27,8 @@ function AdminDash() {
 
     const location = useLocation()
 
-    if (!location.state?.fromFrom){
-        return <Navigate to={'/'}/>
+    if (!location.state?.fromFrom) {
+        return <Navigate to={'/'} />
     }
 
     const [consultationBookings, setConsultationBookings] = useState([])
@@ -33,9 +36,23 @@ function AdminDash() {
     const [isSectionHidden, setIsSectionHidden] = useState(false)
     const [isActive, setIsActive] = useState(true)
 
+
+
     function click() {
         setIsSectionHidden((prev) => !prev)
         setIsActive((prev) => !prev)
+    }
+
+    async function handleDeleteBooking(id: number) {
+        await axios.delete(`https://ignisite-backend.onrender.com/admin/allbookings/${id}`)
+            .then((res) => toast.success(res.data.message)).catch((err) => toast.error(err.response.data.message))
+        window.location.reload()
+    }
+
+    async function handleDeleteService(id: number) {
+        await axios.delete(`https://ignisite-backend.onrender.com/admin/service/requests/${id}`)
+            .then((res) => toast.success(res.data.message)).catch((err) => toast.error(err.response.data.message))
+        window.location.reload()
     }
 
 
@@ -115,10 +132,16 @@ function AdminDash() {
 
                 {/* bookings */}
                 <div hidden={isSectionHidden} className="flex w-[80%] flex-row items-center gap-5 justify-center pt-[2%]">
+                    <ToastContainer />
                     <div className="flex flex-row flex-wrap gap-5">
                         {Array.isArray(consultationBookings) &&
                             consultationBookings.map((items: bookingDetails) => (
                                 <div className="bg-zinc-800 p-6 min-w-[40ch] rounded-lg">
+                                    <div className="flex w-full justify-end">
+                                        <button onClick={() => handleDeleteBooking(items.id)} className="bg-red-700 text-red-200 font-semibold px-4 rounded font-inter">
+                                            Delete
+                                        </button>
+                                    </div>
                                     <div className="flex flex-col gap-5">
                                         <div>
                                             <div className="bg-green-700/50 w-fit px-4 pt-1 rounded-full border-2 border-green-500 font-helvetica text-gray-100 flex flex-row items-center">
@@ -170,6 +193,11 @@ function AdminDash() {
                         {Array.isArray(serviceRequest) &&
                             serviceRequest.map((items: serviceDetails) => (
                                 <div className="bg-zinc-800 p-6 min-w-[40ch] rounded-lg">
+                                    <div className="flex w-full justify-end">
+                                        <button onClick={() => handleDeleteService(items.id)} className="bg-red-700 text-red-200 font-semibold px-4 rounded font-inter">
+                                            Delete
+                                        </button>
+                                    </div>
                                     <div className="flex flex-col gap-5">
                                         <div>
                                             <div className="bg-blue-700/50 w-fit px-4 pt-1 rounded-full border-2 border-blue-500 font-helvetica text-gray-100 flex flex-row items-center">

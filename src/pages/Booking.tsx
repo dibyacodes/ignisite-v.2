@@ -7,7 +7,7 @@ function Booking() {
 
 
     const { tab } = useParams()
-    
+
 
     const defaultSelectedTab = tab ? parseInt(tab) : 0
 
@@ -26,6 +26,7 @@ function Booking() {
 
     const meeting_date = []
     const days = ['sun', 'mon', 'tues', 'wed', 'thu', 'fri', 'sat']
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
     const [buttonLoading, setButtonLoading] = useState(false)
     const navigate = useNavigate()
@@ -35,8 +36,9 @@ function Booking() {
     for (let i = 0; i < days.length; i++) {
         const dayIndex = (tarikh.getDay() + i) % 7
         const meetingDateData = {
+            month: months[tarikh.getMonth()],
             day: days[dayIndex],
-            dates: tarikh.getDate() + i
+            dates: tarikh.getDate() + i,
         }
         meeting_date.push(meetingDateData)
     }
@@ -44,9 +46,6 @@ function Booking() {
 
     async function handclick() {
         setButtonLoading(true)
-        // setTimeout(() => {
-        //     setButtonLoading(false)
-        // }, 5000);
 
 
         if (selectedCallService === callServices[0]) {
@@ -59,8 +58,8 @@ function Booking() {
                     phone: phone,
                 }
                 await axios.post(`https://ignisite-backend.onrender.com/schedule/appointment`, consultationData)
-                    .then((res) => toast.success(res.data.message || "Request Sent Successfully") && setButtonLoading(false)).then(()=>navigate('/success',{ state: { fromFrom: true, username : name, call : date , callTime : time} }))
-                    .catch((err) => toast.error(err.response.data.message || "Something went wrong, Please try again.")).then(()=>setButtonLoading(false))
+                    .then((res) => toast.success(res.data.message || "Request Sent Successfully") && setButtonLoading(false)).then(() => navigate('/success', { state: { fromFrom: true, username: name, call: date, callTime: time } }))
+                    .catch((err) => toast.error(err.response.data.message || "Something went wrong, Please try again.")).then(() => setButtonLoading(false))
             } catch (error) {
                 console.log(error);
             }
@@ -74,7 +73,7 @@ function Booking() {
                 }
 
                 await axios.post('https://ignisite-backend.onrender.com/service/request', serviceRequestData)
-                    .then((res) => toast.success(res.data.message || "Request Sent Successfully") && setButtonLoading(false)).then(()=>navigate('/success',{ state: { fromFrom: true, username : name, service : selectedService } }))
+                    .then((res) => toast.success(res.data.message || "Request Sent Successfully") && setButtonLoading(false)).then(() => navigate('/success', { state: { fromFrom: true, username: name, service: selectedService } }))
                     .catch((err) => toast.error(err.response.data.message || "Something went wrong, Please try again.") && setButtonLoading(false))
             } catch (error) {
                 console.log(error)
@@ -124,15 +123,18 @@ function Booking() {
 
 
                         <div className="text-white gap-3 flex flex-col">
-                            <h1 className="font-inter capitalize font-semibold">
+                            <h1 className="font-inter text-gray-300 capitalize font-semibold">
                                 Pick a date this week
                             </h1>
+                            <p className="text-2xl font-semibold font-inter">
+                               Month Of {months[tarikh.getMonth()]}
+                            </p>
                             <div className="flex flex-wrap md:flex-nowrap flex-row gap-4 w-full">
 
                                 {
                                     meeting_date.map((items) => {
 
-                                        const value = items.dates + " " + items.day
+                                        const value = items.dates + " " + items.month + " " + items.day 
                                         const isSelected = date === value
 
                                         return (
@@ -154,7 +156,7 @@ function Booking() {
                             </div>
                         </div>
                         <div className="flex flex-col gap-2">
-                            <label className="text-white rounded-lg font-semibold font-inter flex flex-row items-center gap-2">Pick a time slot ( IST )</label>
+                            <label className="text-gray-300 rounded-lg font-semibold font-inter flex flex-row items-center gap-2">Pick a time slot ( IST )</label>
                             <div className="flex flex-row gap-4">
                                 {
                                     timeSlots.map((item) => {
