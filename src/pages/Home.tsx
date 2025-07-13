@@ -192,7 +192,7 @@ function Home() {
 
             <section className="bg-[#1a1a1a]">
                 <div className="px-4 lg:ml-[10%]">
-                    <h1 className="text-[#f7f6f5] font-helvetica text-2xl md:text-3xl md:max-w-[50%] font-semibold uppercase flex flex-col flex-wrap">
+                    <h1 className="text-[#f7f6f5] font-helvetica text-2xl md:max-w-[50%] font-semibold uppercase flex flex-col flex-wrap">
                         experience a website built <p className="text-[#bdbdbd]">exclusively for your brand.</p>
                     </h1>
                 </div>
