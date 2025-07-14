@@ -26,11 +26,11 @@ function Response() {
                         </h1>
 
                         <p hidden={service ? false : true} className="font-helvetica capitalize max-w-[70ch] md:text-lg text-center">
-                            Your request for <b>"{service}"</b> was received. Our agent will contact you shortly using the details you provided. Thank you for choosing IgniSite!
+                            Your request for <b>"{service}"</b> was received. You should receive an email, confirming and guiding with the next steps. Thank you for choosing IgniSite!
                         </p>
 
                         <p hidden={call ? false : true} className="font-helvetica capitalize max-w-[80ch] md:text-lg text-center">
-                            You scheduled a call on <b>{call} from {callTime}</b>. Our agent will contact you shortly using the details you provided. Hope to hear from your soon!.Thank you for choosing IgniSite!
+                            You scheduled a call on <b>{call} from {callTime}</b>. Please check you email Inbox or spam folder for a confirmation email. Hope to hear from your soon!.Thank you for choosing IgniSite!
                         </p>
                     </div>
 
