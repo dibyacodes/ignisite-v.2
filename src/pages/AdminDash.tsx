@@ -58,6 +58,8 @@ function AdminDash() {
 
     useEffect(() => {
 
+        document.title = 'IgniSite - Admin page'
+
         async function getCallBookings() {
             try {
                 await axios.get(`https://ignisite-backend.onrender.com/admin/allbookings`, { headers: { 'ngrok-skip-browser-warning': 'any-value' }, withCredentials: true })
