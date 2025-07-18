@@ -57,7 +57,7 @@ function Booking() {
                     date: date,
                     phone: phone,
                 }
-                await axios.post(`/schedule/appointment`, consultationData)
+                await axios.post(`https://ignisite-backend.onrender.com/schedule/appointment`, consultationData)
                     .then((res) => toast.success(res.data.message || "Request Sent Successfully") && setButtonLoading(false)).then(() => navigate('/success', { state: { fromFrom: true, username: name, call: date, callTime: time } }))
                     .catch((err) => toast.error(err.response.data.message || "Something went wrong, Please try again.")).then(() => setButtonLoading(false))
             } catch (error) {
@@ -72,7 +72,7 @@ function Booking() {
                     phone: phone
                 }
 
-                await axios.post('/service/request', serviceRequestData)
+                await axios.post('https://ignisite-backend.onrender.com/service/request', serviceRequestData)
                     .then((res) => toast.success(res.data.message || "Request Sent Successfully") && setButtonLoading(false)).then(() => navigate('/success', { state: { fromFrom: true, username: name, service: selectedService } }))
                     .catch((err) => toast.error(err.response.data.message || "Something went wrong, Please try again.") && setButtonLoading(false))
             } catch (error) {
