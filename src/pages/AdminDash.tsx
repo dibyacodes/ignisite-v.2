@@ -44,13 +44,13 @@ function AdminDash() {
     }
 
     async function handleDeleteBooking(id: number) {
-        await axios.delete(`https://ignisite-backend.onrender.com/admin/allbookings/${id}`)
+        await axios.delete(`/admin/allbookings/${id}`)
             .then((res) => toast.success(res.data.message)).catch((err) => toast.error(err.response.data.message))
         window.location.reload()
     }
 
     async function handleDeleteService(id: number) {
-        await axios.delete(`https://ignisite-backend.onrender.com/admin/service/requests/${id}`)
+        await axios.delete(`/admin/service/requests/${id}`)
             .then((res) => toast.success(res.data.message)).catch((err) => toast.error(err.response.data.message))
         window.location.reload()
     }
@@ -60,7 +60,7 @@ function AdminDash() {
 
         async function getCallBookings() {
             try {
-                await axios.get(`https://ignisite-backend.onrender.com/admin/allbookings`, { headers: { 'ngrok-skip-browser-warning': 'any-value' }, withCredentials: true })
+                await axios.get(`/admin/allbookings`, { headers: { 'ngrok-skip-browser-warning': 'any-value' }, withCredentials: true })
                     .then((res) => {
                         setConsultationBookings(res.data.message)
                     }).catch((err) => console.log(err.response.data.message))
@@ -72,7 +72,7 @@ function AdminDash() {
 
         async function getServiceRequests() {
             try {
-                await axios.get('https://ignisite-backend.onrender.com/admin/service/requests', { withCredentials: true })
+                await axios.get('/admin/service/requests', { withCredentials: true })
                     .then((res) => setServiceRequest(res.data.message))
                     .catch((err) => console.log(err.response.data.message))
             } catch (error) {

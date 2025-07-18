@@ -18,7 +18,7 @@ function AdminLogIn() {
         }
 
         try {
-            axios.post('https://ignisite-backend.onrender.com/admin/signin',adminData,{withCredentials:true}).then((res)=> res.data.success ? setTimeout(() => {navigate('/dashboard',{state:{fromFrom : true}})}, 2000) : console.log(`Login Failed`))
+            axios.post('/admin/signin',adminData,{withCredentials:true}).then((res)=> res.data.success ? setTimeout(() => {navigate('/dashboard',{state:{fromFrom : true}})}, 2000) : console.log(`Login Failed`))
         } catch (error: unknown) {
             return setErrorMsg('An unexpected error occurred')
         }

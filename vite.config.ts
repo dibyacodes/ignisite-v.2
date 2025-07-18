@@ -8,9 +8,9 @@ export default defineConfig({
   server : {
     proxy:{
       // this only works in the local machine
-      '/schedule':'http://localhost:8080',
-      '/admin':'http://localhost:8080',
-      '/service' :'http://localhost:8080'
+      '/schedule':'http://localhost:8000',
+      '/admin':'http://localhost:8000',
+      '/service' :'http://localhost:8000'
     }
   }
 })
