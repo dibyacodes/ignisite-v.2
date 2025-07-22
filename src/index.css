@@ -3,28 +3,26 @@
 @font-face {
   font-family: "Inter";
   src: url("/fonts/inter.ttf") format("truetype");
+  font-display: block;
 }
 
 @font-face {
   font-family: "helvetica";
   src: url("/fonts/Helvetica.ttf") format("truetype");
+  font-display: block;
 }
 
 @font-face {
   font-family: "Meiland";
   src: url("/fonts/meiland.ttf") format("truetype");
+  font-display: block;
 }
 
-@font-face {
-  font-family: "dream";
-  src: url("/fonts/do.otf") format("opentype");
-}
 
 @theme {
   --font-inter : "Inter", sans-serif;
   --font-helvetica : "Helvetica",serif;
   --font-meiland : "Meiland";
-  --font-dream : "dream"
 }
 
 .hide-scrollbar::-webkit-scrollbar {
