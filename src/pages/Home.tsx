@@ -13,13 +13,13 @@ function Home() {
 
     const details = [
         {
-            title : "Founder Dibyajyoti Kumar",
+            title : "Dibyajyoti Kumar, Lead Developer & CEO",
             contactMean : '9435369509',
             iconOrImage : '/coder-pfp.svg'
         },
 
         {
-            title : 'Co-founder Mayukh Sarma',
+            title : 'Mayukh Sarma, Marketing Head & CFO',
             contactMean : '6003155960',
             iconOrImage : '/co-founder-pfp.svg'
         }
