@@ -14,12 +14,14 @@ function Home() {
     const details = [
         {
             title : "Founder Dibyajyoti Kumar",
-            contactMean : '9435369509'
+            contactMean : '9435369509',
+            iconOrImage : '/coder-pfp.svg'
         },
 
         {
             title : 'Co-founder Mayukh Sarma',
-            contactMean : '6003155960'
+            contactMean : '6003155960',
+            iconOrImage : '/co-founder-pfp.svg'
         }
     ]
 
